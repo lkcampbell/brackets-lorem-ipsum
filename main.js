@@ -54,9 +54,9 @@ define(function (require, exports, module) {
     
     // --- Event handlers ---
     function _handleKeyEvent(jqEvent, editor, event) {
-        var text = "",
-            start = 0,
-            end = 0;
+        var text    = "",
+            start   = 0,
+            end     = 0;
         
         if ((event.type === "keydown") && (event.keyCode === KeyEvent.DOM_VK_TAB)) {
             if (_getWordBefore(editor.document, editor.getCursorPos()) === "lorem") {
@@ -79,6 +79,6 @@ define(function (require, exports, module) {
         }
     }
     
-    // --- Update editor listeners any time the active editor changes
+    // Update editor listeners any time the active editor changes
     $(EditorManager).on("activeEditorChange", _updateEditorListener);
 });

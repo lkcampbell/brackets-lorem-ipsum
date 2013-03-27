@@ -28,18 +28,36 @@
 define(function (require, exports, module) {
     "use strict";
     
-    var _loremIpsumText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit,\n";
-    _loremIpsumText += "sed do eiusmod tempor incididunt ut labore et dolore magna\n";
-    _loremIpsumText += "aliqua. Ut enim ad minim veniam, quis nostrud exercitation\n";
-    _loremIpsumText += "ullamco laboris nisi ut aliquip ex ea commodo consequat.\n";
-    _loremIpsumText += "Duis aute irure dolor in reprehenderit in voluptate velit\n";
-    _loremIpsumText += "esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\n";
-    _loremIpsumText += "occaecat cupidatat non proident, sunt in culpa qui officia\n";
+    var _loremIpsumText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, ";
+    _loremIpsumText += "sed do eiusmod tempor incididunt ut labore et dolore magna ";
+    _loremIpsumText += "aliqua. Ut enim ad minim veniam, quis nostrud exercitation ";
+    _loremIpsumText += "ullamco laboris nisi ut aliquip ex ea commodo consequat. ";
+    _loremIpsumText += "Duis aute irure dolor in reprehenderit in voluptate velit ";
+    _loremIpsumText += "esse cillum dolore eu fugiat nulla pariatur. Excepteur sint ";
+    _loremIpsumText += "occaecat cupidatat non proident, sunt in culpa qui officia ";
     _loremIpsumText += "deserunt mollit anim id est laborum.";
     
-    function getParagraph() {
-        return _loremIpsumText;
+    // --- Helper functions
+    
+    // Javascript word wrap function
+    // http://james.padolsey.com/javascript/wordwrap-for-javascript/
+    function _wordwrap(str, width, brk, cut) {
+        brk = brk || "\n";
+        width = width || 75;
+        cut = cut || false;
+        
+        if (!str) { return str; }
+        
+        var regex = ".{1," + width + "}(\\s|$)" + (cut ? "|.{" + width + "}|.+$" : "|\\S+?(\\s|$)");
+        
+        return str.match(new RegExp(regex, "g")).join(brk);
     }
+    
+    // Public methods
+    function getParagraph() {
+        return _wordwrap(_loremIpsumText, 80);
+    }
+    
     
     // --- Public API ---
     exports.getParagraph = getParagraph;
