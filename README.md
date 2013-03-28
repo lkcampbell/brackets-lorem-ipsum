@@ -2,12 +2,12 @@
 An extension for [Brackets](https://github.com/adobe/brackets/) to produce Lorem Ipsum text automatically.
 
 ### How to Install
-To use this extension:
+1. Select **Brackets > File > Install Extension...**
+2. Type or paste https://github.com/lkcampbell/brackets-lorem-ipsum into the dialog box
+3. Click on the **Install** button.
 
-1. [Download](https://github.com/lkcampbell/brackets-lorem-ipsum/archive/master.zip)
-2. Unzip in **user** folder in **Brackets > Help > Show Extensions Folder**
-3. Restart Brackets
-4. Insert Lorem Ipsum text anywhere in an open file by typing 'lorem' and hitting the Tab key
+### How to Use Extension
+Type 'lorem' then press the **Tab** key.
 
 ### Roadmap
 

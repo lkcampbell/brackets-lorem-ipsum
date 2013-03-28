@@ -39,8 +39,7 @@ define(function (require, exports, module) {
     
     // --- Helper functions
     
-    // Javascript word wrap function
-    // http://james.padolsey.com/javascript/wordwrap-for-javascript/
+    // From http://james.padolsey.com/javascript/wordwrap-for-javascript/
     function _wordwrap(str, width, brk, cut) {
         brk = brk || "\n";
         width = width || 75;
