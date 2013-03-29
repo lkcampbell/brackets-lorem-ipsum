@@ -7,7 +7,8 @@ An extension for [Brackets](https://github.com/adobe/brackets/) to produce Lorem
 3. Click on the **Install** button.
 
 ### How to Use Extension
-Type 'lorem' then press the **Tab** key.
+For plaintext, type 'lorem' then press the **Tab** key.
+For HTML, type 'lorem.html' then press the **Tab** key.
 
 ### Roadmap
 
@@ -15,8 +16,10 @@ Type 'lorem' then press the **Tab** key.
 * Multiple words, sentences, and paragraphs
 * Multiple sizes: short, medium, long, and very long
 * Word Wrap option
-* HTML paragraphs, links, and lists
+* Automatic indentation
+* HTML links and lists
 * Help documentation
+* Error handling
 
 ### License
 MIT-licensed -- see `main.js` for details.

@@ -36,33 +36,40 @@ define(function (require, exports, module) {
     var LoremIpsum = require("LoremIpsum");
     
     // --- Helper functions ---
-    function _getWordBefore(document, pos) {
-        var line    = document.getLine(pos.line),
-            start   = pos.ch,
-            end     = pos.ch;
+    function _getLoremCommand(editor) {
+        var document    = editor.document,
+            pos         = editor.getCursorPos(),
+            line        = document.getLine(pos.line),
+            start       = pos.ch,
+            end         = pos.ch,
+            command     = "";
         
         function isWordChar(ch) {
-            return (/\w/).test(ch) || ch.toUpperCase() !== ch.toLowerCase();
+            return (/[\w\\.]/).test(ch) || ch.toUpperCase() !== ch.toLowerCase();
         }
         
         while (start > 0 && isWordChar(line.charAt(start - 1))) {
             --start;
         }
         
-        return document.getRange({line: pos.line, ch: start}, {line: pos.line, ch: end});
+        command = document.getRange({line: pos.line, ch: start}, {line: pos.line, ch: end});
+        
+        return ((command.split(".")[0] === "lorem") ? command : "");
     }
     
     // --- Event handlers ---
     function _handleKeyEvent(jqEvent, editor, event) {
-        var text    = "",
+        var command = "",
+            text    = "",
             start   = 0,
             end     = 0;
         
         if ((event.type === "keydown") && (event.keyCode === KeyEvent.DOM_VK_TAB)) {
-            if (_getWordBefore(editor.document, editor.getCursorPos()) === "lorem") {
-                text    = LoremIpsum.getParagraph();
+            command = _getLoremCommand(editor);
+            if (command) {
+                text    = LoremIpsum.parseCommand(command);
                 end     = editor.getCursorPos();
-                start   = {line: end.line, ch: end.ch - "lorem".length};
+                start   = {line: end.line, ch: end.ch - command.length};
                 editor.document.replaceRange(text, start, end);
                 event.preventDefault();
             }

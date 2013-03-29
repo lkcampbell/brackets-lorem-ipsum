@@ -53,11 +53,37 @@ define(function (require, exports, module) {
     }
     
     // Public methods
-    function getParagraph() {
-        return _wordwrap(_loremIpsumText, 80);
+    function parseCommand(command) {
+        var i,
+            commandArray    = command.split("."),
+            finalText       = "";
+        
+        // Command options
+        var isHTML = false;
+        
+        // Parse the command string
+        for (i = 1; i < commandArray.length; i++) {
+            switch (commandArray[i]) {
+            case "html":
+                isHTML = true;
+                break;
+            default:
+                // Command Error: just return an empty string for now
+                // TODO: return a useful error message that helps fix the command
+                return "";
+            }
+        }
+        
+        finalText = _wordwrap(_loremIpsumText, 80);
+        
+        // Apply the command options
+        if (isHTML) {
+            finalText = "<p>\n" + finalText + "\n</p>";
+        }
+        
+        return finalText;
     }
     
-    
     // --- Public API ---
-    exports.getParagraph = getParagraph;
+    exports.parseCommand = parseCommand;
 });
