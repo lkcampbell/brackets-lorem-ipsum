@@ -7,19 +7,34 @@ An extension for [Brackets](https://github.com/adobe/brackets/) to produce Lorem
 3. Click on the **Install** button.
 
 ### How to Use Extension
-For plaintext: type 'lorem' then press the **Tab** key.
+For plaintext Lorem Ipsum, type 'lorem' then press the **Tab** key.
 
-For HTML: type 'lorem.html' then press the **Tab** key.
+You can also add options to the 'lorem' command in the format '.&lt;option&gt;'
+For example, typing 'lorem.html.wrap40' and then typing the **Tab** key will give you
+html formatted Lorem Ipsum text with a word wrap width of 40 characters.
+
+**Note:** Options to the far right always have the highest priority.  If two options
+conflict with each other, the option on the right will have precedence.
+For example: 'lorem.nowrap.wrap40' will insert Lorem Ipsum text with a word wrap width of
+40 characters and 'lorem.wrap40.nowrap' will insert Lorem Ipsum text with no word wrapping.
+
+##### List of Current Options
+**.html:** Provides Lorem Ipsum text in HTML format.
+
+**.nowrap:** Inserts Lorem Ipsum text without any word wrapping.
+
+**.wrap[width]:** Word wraps Lorem Ipsum text using the specific width.  Example: 'lorem.wrap40'
+will wrap the text at 40 characters.  By default, the word wrap option is on and the width is set
+to 80 characters.  If you want to turn word wrap off, use the '.nowrap' option.
 
 ### Roadmap
 
 * Randomized content
 * Multiple words, sentences, and paragraphs
 * Multiple sizes: short, medium, long, and very long
-* Word Wrap option
 * HTML links and lists
 * Help documentation
-* Error handling
+* Error handling (highlight unrecognized portions of command)
 
 ### License
 MIT-licensed -- see `main.js` for details.

@@ -27,6 +27,9 @@
 
 define(function (require, exports, module) {
     "use strict";
+
+    // --- Constants ---
+    var DEFAULT_WRAP_WIDTH  = 80;
     
     // --- Private members
     var _loremIpsumText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, ";
@@ -39,7 +42,10 @@ define(function (require, exports, module) {
     _loremIpsumText += "deserunt mollit anim id est laborum.";
     
     // --- Helper functions
-    
+    function isNumber(value) {
+        return (typeof value === "number") && (isFinite(value));
+    }
+
     // From http://james.padolsey.com/javascript/wordwrap-for-javascript/
     function _wordwrap(str, width, brk, cut) {
         brk = brk || "\n";
@@ -57,16 +63,33 @@ define(function (require, exports, module) {
     function parseCommand(command) {
         var i,
             commandArray    = command.split("."),
+            commandRegExp   = /([a-z]+)(\d*)/,
+            commandResult   = [],
+            commandString   = "",
+            commandInt      = 0,
             finalText       = "";
         
         // Command options
-        var isHTML = false;
+        var isHTML      = false,
+            isWrapped   = true,
+            wrapWidth   = DEFAULT_WRAP_WIDTH;
         
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
-            switch (commandArray[i]) {
+            commandResult   = commandArray[i].match(commandRegExp);
+            commandString   = commandResult[1];
+            commandInt      = parseInt(commandResult[2], 10);
+            
+            switch (commandString) {
             case "html":
                 isHTML = true;
+                break;
+            case "nowrap":
+                isWrapped = false;
+                break;
+            case "wrap":
+                isWrapped = true;
+                wrapWidth = (isNumber(commandInt)) ? commandInt : DEFAULT_WRAP_WIDTH;
                 break;
             default:
                 // Command Error: just return an empty string for now
@@ -75,9 +98,16 @@ define(function (require, exports, module) {
             }
         }
         
-        finalText = _wordwrap(_loremIpsumText, 80);
+        if (isWrapped) {
+            if (wrapWidth && (wrapWidth > 0)) {
+                finalText = _wordwrap(_loremIpsumText, wrapWidth);
+            } else {
+                finalText = _wordwrap(_loremIpsumText, DEFAULT_WRAP_WIDTH);
+            }
+        } else {
+            finalText = _loremIpsumText;
+        }
         
-        // Apply the command options
         if (isHTML) {
             finalText = "<p>\n" + finalText + "\n</p>";
         }
