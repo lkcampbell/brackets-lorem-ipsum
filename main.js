@@ -59,10 +59,12 @@ define(function (require, exports, module) {
     
     // --- Event handlers ---
     function _handleKeyEvent(jqEvent, editor, event) {
-        var command = "",
-            text    = "",
-            start   = 0,
-            end     = 0;
+        var command     = "",
+            text        = "",
+            start       = 0,
+            end         = 0,
+            codemirror  = ({}),
+            i           = 0;
         
         if ((event.type === "keydown") && (event.keyCode === KeyEvent.DOM_VK_TAB)) {
             command = _getLoremCommand(editor);
@@ -71,6 +73,14 @@ define(function (require, exports, module) {
                 end     = editor.getCursorPos();
                 start   = {line: end.line, ch: end.ch - command.length};
                 editor.document.replaceRange(text, start, end);
+                
+                // Match indentation of all lines to first line indentation
+                codemirror  = editor._codeMirror;
+                end         = editor.getCursorPos();
+                for (i = (start.line + 1); i <= end.line; i++) {
+                    codemirror.indentLine(i, "prev");
+                }
+                
                 event.preventDefault();
             }
         }

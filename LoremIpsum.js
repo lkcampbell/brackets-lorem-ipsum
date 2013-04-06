@@ -28,6 +28,7 @@
 define(function (require, exports, module) {
     "use strict";
     
+    // --- Private members
     var _loremIpsumText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, ";
     _loremIpsumText += "sed do eiusmod tempor incididunt ut labore et dolore magna ";
     _loremIpsumText += "aliqua. Ut enim ad minim veniam, quis nostrud exercitation ";
