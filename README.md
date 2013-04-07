@@ -7,6 +7,8 @@ Lorem Ipsum text automatically.
 2. Type or paste https://github.com/lkcampbell/brackets-lorem-ipsum into the
 dialog box
 3. Click on the **Install** button.
+4. Reload or Restart Brackets -- normally not required but this extension
+needs it.
 
 ### How to Use Extension
 For plaintext Lorem Ipsum, type `lorem` then press the **Tab** key.
