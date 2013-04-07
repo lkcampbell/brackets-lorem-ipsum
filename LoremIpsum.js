@@ -29,20 +29,253 @@ define(function (require, exports, module) {
     "use strict";
 
     // --- Constants ---
-    var DEFAULT_WRAP_WIDTH  = 80;
+    var SIZE_ANY        = 0,
+        SIZE_SHORT      = 1,
+        SIZE_MEDIUM     = 2,
+        SIZE_LONG       = 3,
+        SIZE_VERY_LONG  = 4;
     
+    var DEFAULT_WRAP_WIDTH  = 80,
+        DEFAULT_UNIT_TYPE   = "paragraph",
+        DEFAULT_UNIT_COUNT  = 1,
+        DEFAULT_UNIT_SIZE   = SIZE_MEDIUM;
+        
+
     // --- Private members
-    var _loremIpsumText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, ";
-    _loremIpsumText += "sed do eiusmod tempor incididunt ut labore et dolore magna ";
-    _loremIpsumText += "aliqua. Ut enim ad minim veniam, quis nostrud exercitation ";
-    _loremIpsumText += "ullamco laboris nisi ut aliquip ex ea commodo consequat. ";
-    _loremIpsumText += "Duis aute irure dolor in reprehenderit in voluptate velit ";
-    _loremIpsumText += "esse cillum dolore eu fugiat nulla pariatur. Excepteur sint ";
-    _loremIpsumText += "occaecat cupidatat non proident, sunt in culpa qui officia ";
-    _loremIpsumText += "deserunt mollit anim id est laborum.";
+    var _shortWords     = [ // Words with less than four letters
+        "a",
+        "ad",
+        "do",
+        "ea",
+        "est",
+        "et",
+        "eu",
+        "ex",
+        "id",
+        "in",
+        "non",
+        "qui",
+        "sed",
+        "sit",
+        "ut"
+    ];
+    
+    var _mediumWords    = [ // Words with four to six letters
+        "amet",
+        "aliqua",
+        "anim",
+        "aute",
+        "cillum",
+        "culpa",
+        "dolor",
+        "dolore",
+        "duis",
+        "elit",
+        "enim",
+        "esse",
+        "fugiat",
+        "ipsum",
+        "irure",
+        "labore",
+        "lorem",
+        "magna",
+        "minim",
+        "mollit",
+        "nisi",
+        "nulla",
+        "quis",
+        "sint",
+        "sunt",
+        "velit",
+        "veniam"
+    ];
+    
+    var _longWords      = [ // Words with seven to ten letters
+        "aliquip",
+        "commodo",
+        "consequat",
+        "cupidatat",
+        "deserunt",
+        "eiusmod",
+        "excepteur",
+        "incididunt",
+        "laboris",
+        "laborum",
+        "nostrud",
+        "occaecat",
+        "officia",
+        "pariatur",
+        "proident",
+        "tempor",
+        "ullamco",
+        "voluptate"
+    ];
+    
+    var _veryLongWords  = [ // Words with more than ten letters
+        "adipisicing",
+        "exercitation",
+        "consectetur",
+        "reprehenderit"
+    ];
+    
+    var _allWords = _shortWords.concat(_mediumWords, _longWords, _veryLongWords);
     
     // --- Helper functions
-    function isNumber(value) {
+    function _getRandomWord(size) {
+        var wordArray = [];
+        
+        switch (size) {
+        case SIZE_ANY:
+            wordArray = _allWords;
+            break;
+        case SIZE_SHORT:
+            wordArray = _shortWords;
+            break;
+        case SIZE_MEDIUM:
+            wordArray = _mediumWords;
+            break;
+        case SIZE_LONG:
+            wordArray = _longWords;
+            break;
+        case SIZE_VERY_LONG:
+            wordArray = _veryLongWords;
+            break;
+        default:
+            wordArray = _allWords;
+        }
+        
+        return wordArray[Math.floor(Math.random() * wordArray.length)];
+    }
+    
+    function _getRandomWords(count) {
+        var finalText   = "",
+            i           = 0;
+        
+        for (i = 0; i < count; i++) {
+            finalText += _getRandomWord(SIZE_ANY);
+            finalText += " ";
+        }
+        
+        return finalText.trim();
+    }
+
+    function _getRandomSentence(size) {
+        var finalText   = "",
+            wordCount   = 0,
+            i           = 0;
+        
+        switch (size) {
+        case SIZE_SHORT:
+            wordCount = 3 + Math.floor(Math.random() * 2); // Three to five words
+            for (i = 0; i < wordCount; i++) {
+                finalText += _getRandomWord(SIZE_ANY);
+                finalText += " ";
+            }
+            finalText = finalText.trim();
+            break;
+        case SIZE_MEDIUM:
+            finalText = _getRandomSentence(SIZE_SHORT);
+            if (Math.random() < 0.5) {
+                finalText += ", ";
+            } else {
+                finalText += " ";
+                finalText += _getRandomWord(SIZE_SHORT);
+                finalText += " ";
+            }
+            finalText += _getRandomSentence(SIZE_SHORT);
+            break;
+        case SIZE_LONG:
+            finalText = _getRandomSentence(SIZE_MEDIUM);
+            if (Math.random() < 0.5) {
+                finalText += ", ";
+            } else {
+                finalText += " ";
+                finalText += _getRandomWord(SIZE_SHORT);
+                finalText += " ";
+            }
+            finalText += _getRandomSentence(SIZE_MEDIUM);
+            break;
+        case SIZE_VERY_LONG:
+            finalText = _getRandomSentence(SIZE_LONG);
+            if (Math.random() < 0.5) {
+                finalText += ", ";
+            } else {
+                finalText += " ";
+                finalText += _getRandomWord(SIZE_SHORT);
+                finalText += " ";
+            }
+            finalText += _getRandomSentence(SIZE_LONG);
+            break;
+        default:
+            finalText += _getRandomSentence(SIZE_MEDIUM);
+        }
+        
+        return finalText;
+    }
+    
+    function _getRandomSentences(count, size) {
+        var i           = 0,
+            sentence    = "",
+            finalText   = "";
+        
+        for (i = 0; i < count; i++) {
+            sentence    = _getRandomSentence(size);
+            sentence    = sentence.charAt(0).toUpperCase() + sentence.slice(1) + ". ";
+            finalText   += sentence;
+        }
+
+        return finalText.trim();
+    }
+    
+    function _getRandomParagraph(size) {
+        var finalText       = "",
+            sentenceCount   = 0,
+            i               = 0,
+            sentence        = "";
+        
+        switch (size) {
+        case SIZE_SHORT:
+            sentenceCount = 3 + Math.floor(Math.random() * 2); // Three to five sentences
+            for (i = 0; i < sentenceCount; i++) {
+                sentence    = _getRandomSentence(SIZE_ANY);
+                sentence    = sentence.charAt(0).toUpperCase() + sentence.slice(1) + ". ";
+                finalText   += sentence;
+            }
+            break;
+        case SIZE_MEDIUM:
+            finalText += _getRandomParagraph(SIZE_SHORT);
+            finalText += _getRandomParagraph(SIZE_SHORT);
+            break;
+        case SIZE_LONG:
+            finalText += _getRandomParagraph(SIZE_MEDIUM);
+            finalText += _getRandomParagraph(SIZE_MEDIUM);
+            break;
+        case SIZE_VERY_LONG:
+            finalText += _getRandomParagraph(SIZE_LONG);
+            finalText += _getRandomParagraph(SIZE_LONG);
+            break;
+        default:
+            finalText += _getRandomParagraph(SIZE_MEDIUM);
+        }
+        
+        return finalText;
+    }
+    
+    function _getRandomParagraphs(count, size, isHTML) {
+        var i           = 0,
+            finalText   = "";
+        
+        for (i = 0; i < count; i++) {
+            finalText   += (isHTML ? "<p>" : "");
+            finalText   += _getRandomParagraph(size);
+            finalText   = finalText.trim();
+            finalText   += (isHTML ? "</p>\n" : "\n\n");
+        }
+
+        return finalText.trim();
+    }
+    
+    function _isNumber(value) {
         return (typeof value === "number") && (isFinite(value));
     }
 
@@ -62,7 +295,7 @@ define(function (require, exports, module) {
     // Public methods
     function parseCommand(command) {
         var i,
-            commandArray    = command.split("."),
+            commandArray    = command.split("_"),
             commandRegExp   = /([a-z]+)(\d*)/,
             commandResult   = [],
             commandString   = "",
@@ -70,10 +303,13 @@ define(function (require, exports, module) {
             finalText       = "";
         
         // Command options
-        var isHTML      = false,
+        var unitType    = "",
+            unitCount   = 0,
+            unitSize    = SIZE_MEDIUM,
             isWrapped   = true,
-            wrapWidth   = DEFAULT_WRAP_WIDTH;
-        
+            wrapWidth   = DEFAULT_WRAP_WIDTH,
+            isHTML      = false;
+            
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
             commandResult   = commandArray[i].match(commandRegExp);
@@ -81,15 +317,39 @@ define(function (require, exports, module) {
             commandInt      = parseInt(commandResult[2], 10);
             
             switch (commandString) {
-            case "html":
-                isHTML = true;
+            case "p":
+                unitType = "paragraph";
+                unitCount = (_isNumber(commandInt)) ? commandInt : DEFAULT_UNIT_COUNT;
+                break;
+            case "w":
+                unitType = "word";
+                unitCount = (_isNumber(commandInt)) ? commandInt : DEFAULT_UNIT_COUNT;
+                break;
+            case "s":
+                unitType = "sentence";
+                unitCount = (_isNumber(commandInt)) ? commandInt : DEFAULT_UNIT_COUNT;
+                break;
+            case "short":
+                unitSize = SIZE_SHORT;
+                break;
+            case "medium":
+                unitSize = SIZE_MEDIUM;
+                break;
+            case "long":
+                unitSize = SIZE_LONG;
+                break;
+            case "vlong":
+                unitSize = SIZE_VERY_LONG;
                 break;
             case "nowrap":
                 isWrapped = false;
                 break;
             case "wrap":
                 isWrapped = true;
-                wrapWidth = (isNumber(commandInt)) ? commandInt : DEFAULT_WRAP_WIDTH;
+                wrapWidth = (_isNumber(commandInt)) ? commandInt : DEFAULT_WRAP_WIDTH;
+                break;
+            case "html":
+                isHTML = true;
                 break;
             default:
                 // Command Error: just return an empty string for now
@@ -98,18 +358,30 @@ define(function (require, exports, module) {
             }
         }
         
+        unitType    = unitType  || DEFAULT_UNIT_TYPE;
+        unitCount   = unitCount || DEFAULT_UNIT_COUNT;
+        unitSize    = unitSize  || DEFAULT_UNIT_SIZE;
+        
+        switch (unitType) {
+        case "paragraph":
+            finalText = _getRandomParagraphs(unitCount, unitSize, isHTML);
+            break;
+        case "sentence":
+            finalText = _getRandomSentences(unitCount, unitSize);
+            break;
+        case "word":
+            finalText = _getRandomWords(unitCount);
+            break;
+        default:
+            finalText = _getRandomParagraphs(DEFAULT_UNIT_COUNT, DEFAULT_UNIT_SIZE);
+        }
+            
         if (isWrapped) {
             if (wrapWidth && (wrapWidth > 0)) {
-                finalText = _wordwrap(_loremIpsumText, wrapWidth);
+                finalText = _wordwrap(finalText, wrapWidth);
             } else {
-                finalText = _wordwrap(_loremIpsumText, DEFAULT_WRAP_WIDTH);
+                finalText = _wordwrap(finalText, DEFAULT_WRAP_WIDTH);
             }
-        } else {
-            finalText = _loremIpsumText;
-        }
-        
-        if (isHTML) {
-            finalText = "<p>\n" + finalText + "\n</p>";
         }
         
         return finalText;

@@ -45,7 +45,7 @@ define(function (require, exports, module) {
             command     = "";
         
         function isWordChar(ch) {
-            return (/[\w\\.]/).test(ch) || ch.toUpperCase() !== ch.toLowerCase();
+            return (/[\w]/).test(ch) || ch.toUpperCase() !== ch.toLowerCase();
         }
         
         while (start > 0 && isWordChar(line.charAt(start - 1))) {
@@ -54,7 +54,7 @@ define(function (require, exports, module) {
         
         command = document.getRange({line: pos.line, ch: start}, {line: pos.line, ch: end});
         
-        return ((command.split(".")[0] === "lorem") ? command : "");
+        return ((command.split("_")[0] === "lorem") ? command : "");
     }
     
     // --- Event handlers ---
