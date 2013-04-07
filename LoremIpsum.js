@@ -213,15 +213,17 @@ define(function (require, exports, module) {
         return finalText;
     }
     
-    function _getRandomSentences(count, size) {
+    function _getRandomSentences(count, size, isHTML) {
         var i           = 0,
             sentence    = "",
             finalText   = "";
         
         for (i = 0; i < count; i++) {
+            finalText   += (isHTML ? "<p>" : "");
             sentence    = _getRandomSentence(size);
             sentence    = sentence.charAt(0).toUpperCase() + sentence.slice(1) + ". ";
-            finalText   += sentence;
+            finalText   += sentence.trim();
+            finalText   += (isHTML ? "</p>\n" : "\n\n");
         }
 
         return finalText.trim();
@@ -263,12 +265,13 @@ define(function (require, exports, module) {
     
     function _getRandomParagraphs(count, size, isHTML) {
         var i           = 0,
+            paragraph   = "",
             finalText   = "";
         
         for (i = 0; i < count; i++) {
             finalText   += (isHTML ? "<p>" : "");
-            finalText   += _getRandomParagraph(size);
-            finalText   = finalText.trim();
+            paragraph   = _getRandomParagraph(size);
+            finalText   += paragraph.trim();
             finalText   += (isHTML ? "</p>\n" : "\n\n");
         }
 
@@ -367,7 +370,7 @@ define(function (require, exports, module) {
             finalText = _getRandomParagraphs(unitCount, unitSize, isHTML);
             break;
         case "sentence":
-            finalText = _getRandomSentences(unitCount, unitSize);
+            finalText = _getRandomSentences(unitCount, unitSize, isHTML);
             break;
         case "word":
             finalText = _getRandomWords(unitCount);

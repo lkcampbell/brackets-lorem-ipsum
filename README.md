@@ -28,17 +28,17 @@ command `lorem_wrap40_nowrap` will insert Lorem Ipsum text with no word wrapping
 ##### List of Current Options
 **_p[count]:** Inserts a certain number of random Lorem Ipsum paragraphs into
 the current document.  The `count` option indicates how many paragraphs to insert.
-For example, `lorem_p3` will insert three paragraphs into the document
+For example, `lorem_p3` will insert three paragraphs into the document.
 If the `count` option is not provided, one paragraph will be inserted.
 
 **_s[count]:** Inserts a certain number of random Lorem Ipsum sentences into
 the current document.  The `count` option indicates how many sentences to insert.
-For example, `lorem_s3` will insert three sentences into the document
+For example, `lorem_s3` will insert three sentences into the document.
 If the `count` option is not provided, one sentence will be inserted.
 
 **_w[count]:** Inserts a certain number of random Lorem Ipsum words into the
 current document.  The `count` option indicates how many words to insert.
-For example, `lorem_w40` will insert 40 random words into the document.  If
+For example, `lorem_w40` will insert 40 random words into the document. If
 the `count` option is not provided, one word will be inserted.
 
 **_short:** Makes all words, sentences, or paragraphs short length.
@@ -57,7 +57,8 @@ For example, `lorem_wrap40` will wrap the text at 40 characters.  By default,
 the word wrap option is on and the width is set to 80 characters.  If you want
 to turn word wrap off, use the `_nowrap` option.
 
-**_html:** Provides Lorem Ipsum text in HTML format.
+**_html:** Provides Lorem Ipsum text in HTML format.  Only works for paragraphs
+and sentences.
 
 ### Roadmap
 
