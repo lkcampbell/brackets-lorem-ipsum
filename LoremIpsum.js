@@ -43,6 +43,8 @@ define(function (require, exports, module) {
         DEFAULT_IS_HTML     = false;
 
     // --- Private members
+    var _allSizes = [ SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG, SIZE_VERY_LONG ];
+    
     var _shortWords     = [ // Words with less than four letters
         "a", "ab", "ad", "an", "aut", "de", "do", "e", "ea", "est",
         "et", "eu", "ex", "hic", "id", "iis", "in", "ita", "nam", "ne",
@@ -122,7 +124,29 @@ define(function (require, exports, module) {
         [SIZE_LONG, SIZE_MEDIUM, SIZE_MEDIUM, SIZE_LONG, SIZE_MEDIUM]
     ];
     
-    // --- Helper functions
+    // --- Utility Functions
+    function _getRandomElement(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+    
+    function _isNumber(value) {
+        return (typeof value === "number") && (isFinite(value));
+    }
+
+    // From http://james.padolsey.com/javascript/wordwrap-for-javascript/
+    function _wordwrap(str, width, brk, cut) {
+        brk = brk || "\n";
+        width = width || 75;
+        cut = cut || false;
+        
+        if (!str) { return str; }
+        
+        var regex = ".{1," + width + "}(\\s|$)" + (cut ? "|.{" + width + "}|.+$" : "|\\S+?(\\s|$)");
+        
+        return str.match(new RegExp(regex, "g")).join(brk);
+    }
+    
+    // --- Lorem Ipsum helper functions
     function _getRandomWord(size) {
         var wordArray = [];
         
@@ -146,7 +170,7 @@ define(function (require, exports, module) {
             wordArray = _allWords;
         }
         
-        return wordArray[Math.floor(Math.random() * wordArray.length)];
+        return _getRandomElement(wordArray);
     }
     
     function _getRandomWords(count) {
@@ -166,7 +190,7 @@ define(function (require, exports, module) {
             i           = 0,
             finalText   = "";
             
-        pattern = _fragmentPatterns[Math.floor(Math.random() * _fragmentPatterns.length)];
+        pattern = _getRandomElement(_fragmentPatterns);
         
         for (i = 0; i < pattern.length; i++) {
             finalText += _getRandomWord(pattern[i]);
@@ -177,9 +201,14 @@ define(function (require, exports, module) {
     }
     
     function _getRandomSentence(size) {
-        var finalText   = "";
+        var randomSize  = DEFAULT_UNIT_SIZE,
+            finalText   = "";
         
         switch (size) {
+        case SIZE_ANY:
+            randomSize = _getRandomElement(_allSizes);
+            finalText += _getRandomSentence(randomSize);
+            break;
         case SIZE_SHORT:
             finalText += _getRandomFragment();
             break;
@@ -217,7 +246,7 @@ define(function (require, exports, module) {
             finalText += _getRandomSentence(SIZE_LONG);
             break;
         default:
-            finalText += _getRandomSentence(SIZE_MEDIUM);
+            finalText += _getRandomSentence(DEFAULT_UNIT_SIZE);
         }
         
         return finalText;
@@ -267,7 +296,7 @@ define(function (require, exports, module) {
             finalText += _getRandomParagraph(SIZE_LONG);
             break;
         default:
-            finalText += _getRandomParagraph(SIZE_MEDIUM);
+            finalText += _getRandomParagraph(DEFAULT_UNIT_SIZE);
         }
         
         return finalText;
@@ -288,24 +317,7 @@ define(function (require, exports, module) {
         return finalText.trim();
     }
     
-    function _isNumber(value) {
-        return (typeof value === "number") && (isFinite(value));
-    }
-
-    // From http://james.padolsey.com/javascript/wordwrap-for-javascript/
-    function _wordwrap(str, width, brk, cut) {
-        brk = brk || "\n";
-        width = width || 75;
-        cut = cut || false;
-        
-        if (!str) { return str; }
-        
-        var regex = ".{1," + width + "}(\\s|$)" + (cut ? "|.{" + width + "}|.+$" : "|\\S+?(\\s|$)");
-        
-        return str.match(new RegExp(regex, "g")).join(brk);
-    }
-    
-    // Public methods
+    // -- Public methods
     function parseCommand(command) {
         var i,
             commandArray    = command.split("_"),
