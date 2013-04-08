@@ -58,14 +58,23 @@ as the default option.
 **_wrap[width]:** Word wraps Lorem Ipsum text using the specified `width`
 For example, `lorem_wrap40` will wrap the text at 40 characters. If a word wrap
 option is not provided, the extension will use `_wrap80` as the default option.
-If you want to turn word wrap off, use the `_nowrap` option.
+If you want to turn word wrap off, use the `_nowrap` option.  This option has
+no effect on the `_link` option.
 
-**_html:** Provides Lorem Ipsum text in HTML format. Only works for paragraphs
-and sentences. By default, this option is not active.
+**_html:** Provides Lorem Ipsum text in HTML format. This option only works
+for paragraphs and sentences. By default, it is not active.
+
+**_link[count]:** Inserts a certain number of random Lorem Ipsum HTML links into
+the current document. The HTML link will always point to http://www.brackets.io.
+The `count` option indicates how many links to insert. For example, `lorem_link3`
+will insert three links, separated by page breaks, into the document. If the
+`count` option is not provided, one link will be inserted.   To avoid badly
+formatted HTML, the `_link` option ignores any `_wrap` options and is always
+set to `_nowrap`.
 
 ### Roadmap
 
-* HTML links and lists
+* HTML lists
 * Help documentation
 * Error handling (highlight unrecognized portions of command)
 

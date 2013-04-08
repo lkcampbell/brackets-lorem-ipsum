@@ -239,7 +239,7 @@ define(function (require, exports, module) {
             finalText += _getRandomSentence(SIZE_MEDIUM);
             break;
         case SIZE_VERY_LONG:
-            finalText +=  _getRandomSentence(SIZE_LONG);
+            finalText += _getRandomSentence(SIZE_LONG);
             finalText += _getSentenceConnector();
             finalText += _getRandomSentence(SIZE_LONG);
             break;
@@ -317,6 +317,20 @@ define(function (require, exports, module) {
         return finalText;
     }
     
+    function _getRandomLinks(count) {
+        var i           = 0,
+            finalText   = "";
+        
+        for (i = 0; i < count; i++) {
+            finalText   += "<a href='http://www.brackets.io'>";
+            finalText   += _getRandomFragment();
+            finalText   += "</a><br/>\n";
+        }
+        
+        finalText = finalText.substring(0, (finalText.length - "<br/>\n".length));
+        return finalText;
+    }
+    
     // -- Public methods
     function parseCommand(command) {
         var i,
@@ -376,6 +390,10 @@ define(function (require, exports, module) {
             case "html":
                 isHTML = true;
                 break;
+            case "link":
+                unitType = "link";
+                unitCount = (_isNumber(commandInt)) ? commandInt : DEFAULT_UNIT_COUNT;
+                break;
             default:
                 // Command Error: just return an empty string for now
                 // TODO: return a useful error message that helps fix the command
@@ -393,10 +411,18 @@ define(function (require, exports, module) {
         case "word":
             finalText = _getRandomWords(unitCount);
             break;
+        case "link":
+            finalText = _getRandomLinks(unitCount);
+            break;
         default:
             finalText = _getRandomParagraphs(DEFAULT_UNIT_COUNT, DEFAULT_UNIT_SIZE);
         }
-            
+        
+        // To avoid badly formatted HTML, links are never word wrapped
+        if (unitType === "link") {
+            isWrapped = false;
+        }
+        
         if (isWrapped) {
             if (wrapWidth && (wrapWidth > 0)) {
                 finalText = _wordwrap(finalText, wrapWidth);
