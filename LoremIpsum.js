@@ -82,6 +82,46 @@ define(function (require, exports, module) {
     
     var _allWords = _shortWords.concat(_mediumWords, _longWords, _veryLongWords);
     
+    // Sentence fragment patterns, based off of randomly selected Latin phrases.
+    // Used to build all sentences and paragraphs.
+    var _fragmentPatterns = [
+        // Three words
+        [SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG],
+        [SIZE_SHORT, SIZE_MEDIUM, SIZE_VERY_LONG],
+        [SIZE_SHORT, SIZE_SHORT, SIZE_VERY_LONG],
+        [SIZE_SHORT, SIZE_LONG, SIZE_VERY_LONG],
+        [SIZE_MEDIUM, SIZE_LONG, SIZE_LONG],
+        [SIZE_MEDIUM, SIZE_LONG, SIZE_VERY_LONG],
+        [SIZE_MEDIUM, SIZE_SHORT, SIZE_LONG],
+        [SIZE_LONG, SIZE_SHORT, SIZE_MEDIUM],
+        [SIZE_LONG, SIZE_SHORT, SIZE_LONG],
+        [SIZE_LONG, SIZE_MEDIUM, SIZE_LONG],
+        
+        // Four words
+        [SIZE_SHORT, SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG],
+        [SIZE_SHORT, SIZE_MEDIUM, SIZE_SHORT, SIZE_MEDIUM],
+        [SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG, SIZE_LONG],
+        [SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG, SIZE_VERY_LONG],
+        [SIZE_SHORT, SIZE_LONG, SIZE_SHORT, SIZE_LONG],
+        [SIZE_MEDIUM, SIZE_LONG, SIZE_SHORT, SIZE_LONG],
+        [SIZE_MEDIUM, SIZE_LONG, SIZE_SHORT, SIZE_VERY_LONG],
+        [SIZE_LONG, SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG],
+        [SIZE_LONG, SIZE_MEDIUM, SIZE_LONG, SIZE_LONG],
+        [SIZE_LONG, SIZE_VERY_LONG, SIZE_SHORT, SIZE_LONG],
+        
+        // Five words
+        [SIZE_SHORT, SIZE_SHORT, SIZE_MEDIUM, SIZE_MEDIUM, SIZE_MEDIUM],
+        [SIZE_SHORT, SIZE_MEDIUM, SIZE_MEDIUM, SIZE_SHORT, SIZE_LONG],
+        [SIZE_SHORT, SIZE_MEDIUM, SIZE_MEDIUM, SIZE_MEDIUM, SIZE_LONG],
+        [SIZE_MEDIUM, SIZE_SHORT, SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG],
+        [SIZE_MEDIUM, SIZE_SHORT, SIZE_LONG, SIZE_SHORT, SIZE_MEDIUM],
+        [SIZE_MEDIUM, SIZE_LONG, SIZE_SHORT, SIZE_MEDIUM, SIZE_MEDIUM],
+        [SIZE_MEDIUM, SIZE_VERY_LONG, SIZE_LONG, SIZE_MEDIUM, SIZE_LONG],
+        [SIZE_LONG, SIZE_MEDIUM, SIZE_SHORT, SIZE_LONG, SIZE_VERY_LONG],
+        [SIZE_LONG, SIZE_MEDIUM, SIZE_MEDIUM, SIZE_SHORT, SIZE_MEDIUM],
+        [SIZE_LONG, SIZE_MEDIUM, SIZE_MEDIUM, SIZE_LONG, SIZE_MEDIUM]
+    ];
+    
     // --- Helper functions
     function _getRandomWord(size) {
         var wordArray = [];
@@ -120,20 +160,28 @@ define(function (require, exports, module) {
         
         return finalText.trim();
     }
-
+    
+    function _getRandomFragment() {
+        var pattern     = [],
+            i           = 0,
+            finalText   = "";
+            
+        pattern = _fragmentPatterns[Math.floor(Math.random() * _fragmentPatterns.length)];
+        
+        for (i = 0; i < pattern.length; i++) {
+            finalText += _getRandomWord(pattern[i]);
+            finalText += " ";
+        }
+        
+        return finalText.trim();
+    }
+    
     function _getRandomSentence(size) {
-        var finalText   = "",
-            wordCount   = 0,
-            i           = 0;
+        var finalText   = "";
         
         switch (size) {
         case SIZE_SHORT:
-            wordCount = 3 + Math.floor(Math.random() * 2); // Three to five words
-            for (i = 0; i < wordCount; i++) {
-                finalText += _getRandomWord(SIZE_ANY);
-                finalText += " ";
-            }
-            finalText = finalText.trim();
+            finalText += _getRandomFragment();
             break;
         case SIZE_MEDIUM:
             finalText = _getRandomSentence(SIZE_SHORT);

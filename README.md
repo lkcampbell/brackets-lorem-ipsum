@@ -68,7 +68,6 @@ and sentences. By default, this option is not active.
 * HTML links and lists
 * Help documentation
 * Error handling (highlight unrecognized portions of command)
-* Improve randomized content: better sentence structure
 
 ### License
 MIT-licensed -- see `main.js` for details.
