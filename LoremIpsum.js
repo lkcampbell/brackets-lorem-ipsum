@@ -35,11 +35,12 @@ define(function (require, exports, module) {
         SIZE_LONG       = 3,
         SIZE_VERY_LONG  = 4;
     
-    var DEFAULT_WRAP_WIDTH  = 80,
-        DEFAULT_UNIT_TYPE   = "paragraph",
+    var DEFAULT_UNIT_TYPE   = "paragraph",
         DEFAULT_UNIT_COUNT  = 1,
-        DEFAULT_UNIT_SIZE   = SIZE_MEDIUM;
-        
+        DEFAULT_UNIT_SIZE   = SIZE_MEDIUM,
+        DEFAULT_IS_WRAPPED  = true,
+        DEFAULT_WRAP_WIDTH  = 80,
+        DEFAULT_IS_HTML     = false;
 
     // --- Private members
     var _shortWords     = [ // Words with less than four letters
@@ -267,12 +268,12 @@ define(function (require, exports, module) {
             finalText       = "";
         
         // Command options
-        var unitType    = "",
-            unitCount   = 0,
-            unitSize    = SIZE_MEDIUM,
-            isWrapped   = true,
+        var unitType    = DEFAULT_UNIT_TYPE,
+            unitCount   = DEFAULT_UNIT_COUNT,
+            unitSize    = DEFAULT_UNIT_SIZE,
+            isWrapped   = DEFAULT_IS_WRAPPED,
             wrapWidth   = DEFAULT_WRAP_WIDTH,
-            isHTML      = false;
+            isHTML      = DEFAULT_IS_HTML;
             
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
@@ -321,11 +322,6 @@ define(function (require, exports, module) {
                 return "";
             }
         }
-        
-        // Get the default values for undefined options
-        unitType    = unitType  || DEFAULT_UNIT_TYPE;
-        unitCount   = unitCount || DEFAULT_UNIT_COUNT;
-        unitSize    = unitSize  || DEFAULT_UNIT_SIZE;
         
         switch (unitType) {
         case "paragraph":
