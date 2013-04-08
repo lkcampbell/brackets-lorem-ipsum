@@ -43,15 +43,15 @@ current document. The `count` option indicates how many words to insert.
 For example, `lorem_w40` will insert 40 random words into the document.
 If the `count` option is not provided, one word will be inserted.
 
-**_short:** Makes all words, sentences, or paragraphs short length.
+**_short:** Makes all sentences or paragraphs short length.
 
-**_medium:** Makes all words, sentences, or paragraphs medium length.
+**_medium:** Makes all sentences or paragraphs medium length.
 If no size options are provided, the extension will use `_medium`
 as the default option.
 
-**_long:** Makes all words, sentences, or paragraphs long length.
+**_long:** Makes all sentences or paragraphs long length.
 
-**_vlong:** Makes all words, sentences, or paragraphs very long length.
+**_vlong:** Makes all sentences or paragraphs very long length.
 
 **_nowrap:** Inserts Lorem Ipsum text without any word wrapping.
 
