@@ -182,7 +182,8 @@ define(function (require, exports, module) {
             finalText += " ";
         }
         
-        return finalText.trim();
+        finalText = finalText.trim();
+        return finalText;
     }
     
     function _getRandomFragment() {
@@ -197,7 +198,22 @@ define(function (require, exports, module) {
             finalText += " ";
         }
         
-        return finalText.trim();
+        finalText = finalText.trim();
+        return finalText;
+    }
+    
+    function _getSentenceConnector() {
+        var finalText = "";
+        
+        if (Math.random() < 0.5) {
+            finalText += ", ";
+        } else {
+            finalText += " ";
+            finalText += _getRandomWord(SIZE_SHORT);
+            finalText += " ";
+        }
+        
+        return finalText;
     }
     
     function _getRandomSentence(size) {
@@ -206,43 +222,25 @@ define(function (require, exports, module) {
         
         switch (size) {
         case SIZE_ANY:
-            randomSize = _getRandomElement(_allSizes);
-            finalText += _getRandomSentence(randomSize);
+            randomSize =  _getRandomElement(_allSizes);
+            finalText  += _getRandomSentence(randomSize);
             break;
         case SIZE_SHORT:
             finalText += _getRandomFragment();
             break;
         case SIZE_MEDIUM:
-            finalText = _getRandomSentence(SIZE_SHORT);
-            if (Math.random() < 0.5) {
-                finalText += ", ";
-            } else {
-                finalText += " ";
-                finalText += _getRandomWord(SIZE_SHORT);
-                finalText += " ";
-            }
+            finalText += _getRandomSentence(SIZE_SHORT);
+            finalText += _getSentenceConnector();
             finalText += _getRandomSentence(SIZE_SHORT);
             break;
         case SIZE_LONG:
-            finalText = _getRandomSentence(SIZE_MEDIUM);
-            if (Math.random() < 0.5) {
-                finalText += ", ";
-            } else {
-                finalText += " ";
-                finalText += _getRandomWord(SIZE_SHORT);
-                finalText += " ";
-            }
+            finalText += _getRandomSentence(SIZE_MEDIUM);
+            finalText += _getSentenceConnector();
             finalText += _getRandomSentence(SIZE_MEDIUM);
             break;
         case SIZE_VERY_LONG:
-            finalText = _getRandomSentence(SIZE_LONG);
-            if (Math.random() < 0.5) {
-                finalText += ", ";
-            } else {
-                finalText += " ";
-                finalText += _getRandomWord(SIZE_SHORT);
-                finalText += " ";
-            }
+            finalText +=  _getRandomSentence(SIZE_LONG);
+            finalText += _getSentenceConnector();
             finalText += _getRandomSentence(SIZE_LONG);
             break;
         default:
@@ -264,8 +262,9 @@ define(function (require, exports, module) {
             finalText   += sentence.trim();
             finalText   += (isHTML ? "</p>\n" : "\n\n");
         }
-
-        return finalText.trim();
+        
+        finalText = finalText.trim();
+        return finalText;
     }
     
     function _getRandomParagraph(size) {
@@ -313,8 +312,9 @@ define(function (require, exports, module) {
             finalText   += paragraph.trim();
             finalText   += (isHTML ? "</p>\n" : "\n\n");
         }
-
-        return finalText.trim();
+        
+        finalText = finalText.trim();
+        return finalText;
     }
     
     // -- Public methods
