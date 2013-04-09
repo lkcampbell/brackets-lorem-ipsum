@@ -23,11 +23,14 @@
  */
 
 /*jslint vars: true, plusplus: true, devel: true, regexp: true, nomen: true, indent: 4, maxerr: 50 */
-/*global define */
+/*global define, brackets */
 
 define(function (require, exports, module) {
     "use strict";
-
+    
+    // --- Brackets Modules ---
+    var NativeApp = brackets.getModule("utils/NativeApp");
+    
     // --- Constants ---
     var SIZE_ANY        = 0,
         SIZE_SHORT      = 1,
@@ -40,7 +43,10 @@ define(function (require, exports, module) {
         DEFAULT_UNIT_SIZE   = SIZE_MEDIUM,
         DEFAULT_IS_WRAPPED  = true,
         DEFAULT_WRAP_WIDTH  = 80,
-        DEFAULT_IS_HTML     = false;
+        DEFAULT_IS_HTML     = false,
+        DEFAULT_SHOW_HELP   = false;
+    
+    var HELP_URL = "https://github.com/lkcampbell/brackets-lorem-ipsum#how-to-use-extension";
 
     // --- Private members
     var _allSizes = [ SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG, SIZE_VERY_LONG ];
@@ -362,7 +368,8 @@ define(function (require, exports, module) {
             unitSize    = DEFAULT_UNIT_SIZE,
             isWrapped   = DEFAULT_IS_WRAPPED,
             wrapWidth   = DEFAULT_WRAP_WIDTH,
-            isHTML      = DEFAULT_IS_HTML;
+            isHTML      = DEFAULT_IS_HTML,
+            showHelp    = DEFAULT_SHOW_HELP;
         
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
@@ -419,6 +426,9 @@ define(function (require, exports, module) {
                 case "html":
                     isHTML = true;
                     break;
+                case "help":
+                    showHelp = true;
+                    break;
                 default:
                     // Unrecognized option
                     errorString = "Error: Unrecognized option '_" + commandArray[i] + "'.";
@@ -429,7 +439,12 @@ define(function (require, exports, module) {
             }
         }
         
-        if (!errorString) {
+        if (errorString) {
+            finalText = errorString;
+        } else if (showHelp) {
+            NativeApp.openURLInDefaultBrowser(HELP_URL);
+            finalText = "";
+        } else {
             switch (unitType) {
             case "paragraph":
                 finalText = _getRandomParagraphs(unitCount, unitSize);
@@ -479,9 +494,6 @@ define(function (require, exports, module) {
                 
                 finalText = "<p>\n" + finalText + "\n</p>";
             }
-            
-        } else {
-            finalText = errorString;
         }
         
         return finalText;

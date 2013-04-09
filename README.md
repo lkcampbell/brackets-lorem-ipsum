@@ -10,7 +10,7 @@ dialog box
 4. Reload or Restart Brackets -- normally not required but this extension
 needs it.
 
-### How to Use Extension
+### How to Use Lorem Ipsum Generator
 For plaintext Lorem Ipsum, type `lorem` then press the **Tab** key.
 
 You can also add options to the `lorem` command with an underscore character
@@ -83,8 +83,8 @@ tags.  For options `_p` and `_s`, each individual paragraph or sentence is wrapp
 For options `_w` and `_link`, the entire collection of words or links is wrapped.
 This option is not available for lists since lists are not inline elements.
 
-### Roadmap
-* Help documentation
+**_help:** Displays help for the Lorem Ipsum extension.  If this option is used,
+all other options will be ignored and no Lorem Ipsum text will be generated.
 
 ### License
 MIT-licensed -- see `main.js` for details.
