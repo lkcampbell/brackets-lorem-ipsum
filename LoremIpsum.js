@@ -275,7 +275,7 @@ define(function (require, exports, module) {
         
         switch (size) {
         case SIZE_SHORT:
-            sentenceCount = 3 + Math.floor(Math.random() * 2); // Three to five sentences
+            sentenceCount = 3 + Math.floor(Math.random() * 2); // Three or four sentences
             for (i = 0; i < sentenceCount; i++) {
                 sentence    = _getRandomSentence(SIZE_ANY);
                 sentence    = sentence.charAt(0).toUpperCase() + sentence.slice(1) + ". ";
