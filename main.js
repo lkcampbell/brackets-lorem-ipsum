@@ -74,11 +74,11 @@ define(function (require, exports, module) {
                 start   = {line: end.line, ch: end.ch - command.length};
                 editor.document.replaceRange(text, start, end);
                 
-                // Match indentation of all lines to first line indentation
+                // Fix the line indentation
                 codemirror  = editor._codeMirror;
                 end         = editor.getCursorPos();
                 for (i = (start.line + 1); i <= end.line; i++) {
-                    codemirror.indentLine(i, "prev");
+                    codemirror.indentLine(i);
                 }
                 
                 event.preventDefault();

@@ -331,6 +331,22 @@ define(function (require, exports, module) {
         return finalText;
     }
     
+    function _getRandomList(count, isOrdered) {
+        var i           = 0,
+            finalText   = "";
+        
+        finalText += (isOrdered ? "<ol>" : "<ul>") + "\n";
+        
+        for (i = 0; i < count; i++) {
+            finalText   += "<li>";
+            finalText   += _getRandomFragment();
+            finalText   += "</li>\n";
+        }
+        
+        finalText += (isOrdered ? "</ol>" : "</ul>");
+        return finalText;
+    }
+    
     // -- Public methods
     function parseCommand(command) {
         var i,
@@ -397,6 +413,14 @@ define(function (require, exports, module) {
                     unitType = "link";
                     unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
                     break;
+                case "ol":
+                    unitType = "orderedList";
+                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                    break;
+                case "ul":
+                    unitType = "unorderedList";
+                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                    break;
                 default:
                     // Unrecognized option
                     errorString = "Error: Unrecognized option '_" + commandArray[i] + "'.";
@@ -421,12 +445,18 @@ define(function (require, exports, module) {
             case "link":
                 finalText = _getRandomLinks(unitCount);
                 break;
+            case "orderedList":
+                finalText = _getRandomList(unitCount, true);
+                break;
+            case "unorderedList":
+                finalText = _getRandomList(unitCount, false);
+                break;
             default:
                 finalText = _getRandomParagraphs(DEFAULT_UNIT_COUNT, DEFAULT_UNIT_SIZE);
             }
             
-            // To avoid badly formatted HTML, links are never word wrapped
-            if (unitType === "link") {
+            // To avoid badly formatted HTML, links and lists are never word wrapped
+            if ((/^(link|orderedList|unorderedList)$/.test(unitType))) {
                 isWrapped = false;
             }
             

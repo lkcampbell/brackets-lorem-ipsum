@@ -69,13 +69,19 @@ for paragraphs and sentences. By default, it is not active.
 the current document. The HTML link will always point to http://www.brackets.io.
 The `count` option indicates how many links to insert. For example, `lorem_link3`
 will insert three links, separated by page breaks, into the document. If the
-`count` option is not provided, one link will be inserted.   To avoid badly
+`count` option is not provided, one link will be inserted. To avoid badly
 formatted HTML, the `_link` option ignores any `_wrap` options and is always
 set to `_nowrap`.
 
-### Roadmap
+**_ol[count]**, **_ul[count]:** Inserts a random Lorem Ipsum HTML list into
+the current document. Use `_ol` for an ordered list and `_ul` for an unordered
+list. The `count` option indicates how many list items to insert. For example,
+`lorem_ol3` will insert an ordered list with three list items into the document.
+If the `count` option is not provided, a list with one item will be inserted.
+To avoid badly formatted HTML, both of these options ignore any `_wrap` options
+and are always set to `_nowrap`.
 
-* HTML lists
+### Roadmap
 * Help documentation
 
 ### License
