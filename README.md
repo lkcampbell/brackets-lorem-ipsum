@@ -78,14 +78,13 @@ If the `count` option is not provided, a list with one item will be inserted.
 To avoid badly formatted HTML, both of these options ignore any `_wrap` options
 and are always set to `_nowrap`.
 
-**_html:** Wraps any generated Lorem Ipsum in `<p></p>` tags.  For options `_p`
-and `_s`, each individual paragraph or sentence is wrapped.  For options `_w`
-and `_link`, the entire collection of words or links is wrapped.  For options
-`_ol` and `_ul`, `_html` is not yet supported, so it will currently do nothing.
+**_html:** Wraps Lorem Ipsum paragraphs, sentences, words, or links in `<p></p>`
+tags.  For options `_p` and `_s`, each individual paragraph or sentence is wrapped.
+For options `_w` and `_link`, the entire collection of words or links is wrapped.
+This option is not available for lists since lists are not inline elements.
 
 ### Roadmap
 * Help documentation
-* Support `_html` option for ordered and unordered lists
 
 ### License
 MIT-licensed -- see `main.js` for details.

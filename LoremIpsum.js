@@ -466,17 +466,18 @@ define(function (require, exports, module) {
                 }
             }
             
+            // Ignore _html option for lists, should never be in paragraphs.
+            if ((/^(orderedList|unorderedList)$/.test(unitType))) {
+                isHTML = false;
+            }
+            
             if (isHTML) {
-                // TODO: Investigate and fix Brackets bug that is breaking the
-                // _html functionality for lists.  Once fixed, remove conditional.
-                if ((unitType !== "orderedList") && (unitType !== "unorderedList")) {
-                    if ((/^(sentence|paragraph)$/.test(unitType))) {
-                        // Wrap each individual sentence or paragraph
-                        finalText = finalText.replace(/\n{2,}/g, "\n</p>\n\n<p>\n");
-                    }
-                    
-                    finalText = "<p>\n" + finalText + "\n</p>";
+                if ((/^(sentence|paragraph)$/.test(unitType))) {
+                    // Wrap each individual sentence or paragraph
+                    finalText = finalText.replace(/\n{2,}/g, "\n</p>\n\n<p>\n");
                 }
+                
+                finalText = "<p>\n" + finalText + "\n</p>";
             }
             
         } else {
