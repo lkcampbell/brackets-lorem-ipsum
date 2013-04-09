@@ -46,7 +46,7 @@ define(function (require, exports, module) {
         DEFAULT_IS_HTML     = false,
         DEFAULT_SHOW_HELP   = false;
     
-    var HELP_URL = "https://github.com/lkcampbell/brackets-lorem-ipsum#how-to-use-extension";
+    var HELP_URL = "https://github.com/lkcampbell/brackets-lorem-ipsum#how-to-use-lorem-ipsum-generator";
 
     // --- Private members
     var _allSizes = [ SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG, SIZE_VERY_LONG ];
