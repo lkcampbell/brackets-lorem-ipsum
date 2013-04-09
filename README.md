@@ -60,10 +60,7 @@ as the default option.
 For example, `lorem_wrap40` will wrap the text at 40 characters. If a word wrap
 option is not provided, the extension will use `_wrap80` as the default option.
 If you want to turn word wrap off, use the `_nowrap` option.  This option has
-no effect on the `_link` option.
-
-**_html:** Provides Lorem Ipsum text in HTML format. This option only works
-for paragraphs and sentences. By default, it is not active.
+no effect on the `_link`, `_ol`, or `_ul` options.
 
 **_link[count]:** Inserts a certain number of random Lorem Ipsum HTML links into
 the current document. The HTML link will always point to http://www.brackets.io.
@@ -73,7 +70,7 @@ will insert three links, separated by page breaks, into the document. If the
 formatted HTML, the `_link` option ignores any `_wrap` options and is always
 set to `_nowrap`.
 
-**_ol[count]**, **_ul[count]:** Inserts a random Lorem Ipsum HTML list into
+**_ol[count], _ul[count]:** Inserts a random Lorem Ipsum HTML list into
 the current document. Use `_ol` for an ordered list and `_ul` for an unordered
 list. The `count` option indicates how many list items to insert. For example,
 `lorem_ol3` will insert an ordered list with three list items into the document.
@@ -81,8 +78,14 @@ If the `count` option is not provided, a list with one item will be inserted.
 To avoid badly formatted HTML, both of these options ignore any `_wrap` options
 and are always set to `_nowrap`.
 
+**_html:** Wraps any generated Lorem Ipsum in `<p></p>` tags.  For options `_p`
+and `_s`, each individual paragraph or sentence is wrapped.  For options `_w`
+and `_link`, the entire collection of words or links is wrapped.  For options
+`_ol` and `_ul`, `_html` is not yet supported, so it will currently do nothing.
+
 ### Roadmap
 * Help documentation
+* Support `_html` option for ordered and unordered lists
 
 ### License
 MIT-licensed -- see `main.js` for details.

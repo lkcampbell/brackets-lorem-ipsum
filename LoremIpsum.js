@@ -250,17 +250,16 @@ define(function (require, exports, module) {
         return finalText;
     }
     
-    function _getRandomSentences(count, size, isHTML) {
+    function _getRandomSentences(count, size) {
         var i           = 0,
             sentence    = "",
             finalText   = "";
         
         for (i = 0; i < count; i++) {
-            finalText   += (isHTML ? "<p>" : "");
             sentence    = _getRandomSentence(size);
             sentence    = sentence.charAt(0).toUpperCase() + sentence.slice(1) + ". ";
             finalText   += sentence.trim();
-            finalText   += (isHTML ? "</p>\n" : "\n\n");
+            finalText   += "\n\n";
         }
         
         finalText = finalText.trim();
@@ -301,16 +300,15 @@ define(function (require, exports, module) {
         return finalText;
     }
     
-    function _getRandomParagraphs(count, size, isHTML) {
+    function _getRandomParagraphs(count, size) {
         var i           = 0,
             paragraph   = "",
             finalText   = "";
         
         for (i = 0; i < count; i++) {
-            finalText   += (isHTML ? "<p>" : "");
             paragraph   = _getRandomParagraph(size);
             finalText   += paragraph.trim();
-            finalText   += (isHTML ? "</p>\n" : "\n\n");
+            finalText   += "\n\n";
         }
         
         finalText = finalText.trim();
@@ -406,9 +404,6 @@ define(function (require, exports, module) {
                     isWrapped = true;
                     wrapWidth = (_isNumber(optionInt)) ? optionInt : DEFAULT_WRAP_WIDTH;
                     break;
-                case "html":
-                    isHTML = true;
-                    break;
                 case "link":
                     unitType = "link";
                     unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
@@ -420,6 +415,9 @@ define(function (require, exports, module) {
                 case "ul":
                     unitType = "unorderedList";
                     unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                    break;
+                case "html":
+                    isHTML = true;
                     break;
                 default:
                     // Unrecognized option
@@ -434,10 +432,10 @@ define(function (require, exports, module) {
         if (!errorString) {
             switch (unitType) {
             case "paragraph":
-                finalText = _getRandomParagraphs(unitCount, unitSize, isHTML);
+                finalText = _getRandomParagraphs(unitCount, unitSize);
                 break;
             case "sentence":
-                finalText = _getRandomSentences(unitCount, unitSize, isHTML);
+                finalText = _getRandomSentences(unitCount, unitSize);
                 break;
             case "word":
                 finalText = _getRandomWords(unitCount);
@@ -467,6 +465,20 @@ define(function (require, exports, module) {
                     finalText = _wordwrap(finalText, DEFAULT_WRAP_WIDTH);
                 }
             }
+            
+            if (isHTML) {
+                // TODO: Investigate and fix Brackets bug that is breaking the
+                // _html functionality for lists.  Once fixed, remove conditional.
+                if ((unitType !== "orderedList") && (unitType !== "unorderedList")) {
+                    if ((/^(sentence|paragraph)$/.test(unitType))) {
+                        // Wrap each individual sentence or paragraph
+                        finalText = finalText.replace(/\n{2,}/g, "\n</p>\n\n<p>\n");
+                    }
+                    
+                    finalText = "<p>\n" + finalText + "\n</p>";
+                }
+            }
+            
         } else {
             finalText = errorString;
         }

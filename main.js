@@ -77,7 +77,7 @@ define(function (require, exports, module) {
                 // Fix the line indentation
                 codemirror  = editor._codeMirror;
                 end         = editor.getCursorPos();
-                for (i = (start.line + 1); i <= end.line; i++) {
+                for (i = (start.line); i <= end.line; i++) {
                     codemirror.indentLine(i);
                 }
                 
