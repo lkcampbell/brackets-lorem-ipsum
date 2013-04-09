@@ -1,5 +1,5 @@
 # Lorem Ipsum Generator for Brackets
-An extension for [Brackets](https://github.com/adobe/brackets/) to produce
+An extension for [Brackets](https://github.com/adobe/brackets/) to generate
 Lorem Ipsum text automatically.
 
 ### How to Install
@@ -31,8 +31,8 @@ command `lorem_wrap40_nowrap` will insert Lorem Ipsum text with no word wrapping
 the current document. The `count` option indicates how many paragraphs to insert.
 For example, `lorem_p3` will insert three paragraphs into the document.
 If the `count` option is not provided, one paragraph will be inserted.
-If unit type options are not provided, the extension will use `_paragraph`
-as the default option.
+If the type of Lorem Ipsum text is not specified, the extension will generate
+paragraphs by default.
 
 **_s[count]:** Inserts a certain number of random Lorem Ipsum sentences into
 the current document. The `count` option indicates how many sentences to insert.
