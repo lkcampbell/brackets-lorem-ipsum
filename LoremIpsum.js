@@ -335,10 +335,11 @@ define(function (require, exports, module) {
     function parseCommand(command) {
         var i,
             commandArray    = command.split("_"),
-            commandRegExp   = /([a-z]+)(\d*)/,
-            commandResult   = [],
-            commandString   = "",
-            commandInt      = 0,
+            optionRegExp    = /^([a-z]+)(\d*)$/,
+            optionResult    = [],
+            optionString    = "",
+            optionInt       = 0,
+            errorString     = "",
             finalText       = "";
         
         // Command options
@@ -348,87 +349,96 @@ define(function (require, exports, module) {
             isWrapped   = DEFAULT_IS_WRAPPED,
             wrapWidth   = DEFAULT_WRAP_WIDTH,
             isHTML      = DEFAULT_IS_HTML;
-            
+        
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
-            commandResult   = commandArray[i].match(commandRegExp);
-            commandString   = commandResult[1];
-            commandInt      = parseInt(commandResult[2], 10);
+            optionResult   = commandArray[i].match(optionRegExp);
             
-            switch (commandString) {
-            case "p":
-                unitType = "paragraph";
-                unitCount = (_isNumber(commandInt)) ? commandInt : DEFAULT_UNIT_COUNT;
+            if (optionResult) {
+                optionString   = optionResult[1];
+                optionInt      = parseInt(optionResult[2], 10);
+                
+                switch (optionString) {
+                case "p":
+                    unitType = "paragraph";
+                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                    break;
+                case "w":
+                    unitType = "word";
+                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                    break;
+                case "s":
+                    unitType = "sentence";
+                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                    break;
+                case "short":
+                    unitSize = SIZE_SHORT;
+                    break;
+                case "medium":
+                    unitSize = SIZE_MEDIUM;
+                    break;
+                case "long":
+                    unitSize = SIZE_LONG;
+                    break;
+                case "vlong":
+                    unitSize = SIZE_VERY_LONG;
+                    break;
+                case "nowrap":
+                    isWrapped = false;
+                    break;
+                case "wrap":
+                    isWrapped = true;
+                    wrapWidth = (_isNumber(optionInt)) ? optionInt : DEFAULT_WRAP_WIDTH;
+                    break;
+                case "html":
+                    isHTML = true;
+                    break;
+                case "link":
+                    unitType = "link";
+                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                    break;
+                default:
+                    // Unrecognized option
+                    errorString = "Error: Unrecognized option '_" + commandArray[i] + "'.";
+                }
+            } else {
+                // Unrecognized option
+                errorString = "Error: Unrecognized option '_" + commandArray[i] + "'.";
+            }
+        }
+        
+        if (!errorString) {
+            switch (unitType) {
+            case "paragraph":
+                finalText = _getRandomParagraphs(unitCount, unitSize, isHTML);
                 break;
-            case "w":
-                unitType = "word";
-                unitCount = (_isNumber(commandInt)) ? commandInt : DEFAULT_UNIT_COUNT;
+            case "sentence":
+                finalText = _getRandomSentences(unitCount, unitSize, isHTML);
                 break;
-            case "s":
-                unitType = "sentence";
-                unitCount = (_isNumber(commandInt)) ? commandInt : DEFAULT_UNIT_COUNT;
-                break;
-            case "short":
-                unitSize = SIZE_SHORT;
-                break;
-            case "medium":
-                unitSize = SIZE_MEDIUM;
-                break;
-            case "long":
-                unitSize = SIZE_LONG;
-                break;
-            case "vlong":
-                unitSize = SIZE_VERY_LONG;
-                break;
-            case "nowrap":
-                isWrapped = false;
-                break;
-            case "wrap":
-                isWrapped = true;
-                wrapWidth = (_isNumber(commandInt)) ? commandInt : DEFAULT_WRAP_WIDTH;
-                break;
-            case "html":
-                isHTML = true;
+            case "word":
+                finalText = _getRandomWords(unitCount);
                 break;
             case "link":
-                unitType = "link";
-                unitCount = (_isNumber(commandInt)) ? commandInt : DEFAULT_UNIT_COUNT;
+                finalText = _getRandomLinks(unitCount);
                 break;
             default:
-                // Command Error: just return an empty string for now
-                // TODO: return a useful error message that helps fix the command
-                return "";
+                finalText = _getRandomParagraphs(DEFAULT_UNIT_COUNT, DEFAULT_UNIT_SIZE);
             }
-        }
-        
-        switch (unitType) {
-        case "paragraph":
-            finalText = _getRandomParagraphs(unitCount, unitSize, isHTML);
-            break;
-        case "sentence":
-            finalText = _getRandomSentences(unitCount, unitSize, isHTML);
-            break;
-        case "word":
-            finalText = _getRandomWords(unitCount);
-            break;
-        case "link":
-            finalText = _getRandomLinks(unitCount);
-            break;
-        default:
-            finalText = _getRandomParagraphs(DEFAULT_UNIT_COUNT, DEFAULT_UNIT_SIZE);
-        }
-        
-        // To avoid badly formatted HTML, links are never word wrapped
-        if (unitType === "link") {
-            isWrapped = false;
-        }
-        
-        if (isWrapped) {
-            if (wrapWidth && (wrapWidth > 0)) {
-                finalText = _wordwrap(finalText, wrapWidth);
-            } else {
-                finalText = _wordwrap(finalText, DEFAULT_WRAP_WIDTH);
+            
+            // To avoid badly formatted HTML, links are never word wrapped
+            if (unitType === "link") {
+                isWrapped = false;
             }
+            
+            if (isWrapped) {
+                if (wrapWidth && (wrapWidth > 0)) {
+                    finalText = _wordwrap(finalText, wrapWidth);
+                } else {
+                    finalText = _wordwrap(finalText, DEFAULT_WRAP_WIDTH);
+                }
+            }
+        } else {
+            finalText = errorString;
         }
         
         return finalText;
