@@ -4,8 +4,8 @@ Lorem Ipsum text automatically.
 
 ### How to Install
 1. Select **Brackets > File > Install Extension...**
-2. Type or paste https://github.com/lkcampbell/brackets-lorem-ipsum into the
-dialog box
+2. Paste https://github.com/lkcampbell/brackets-lorem-ipsum
+into Extension URL field.
 3. Click on the **Install** button.
 4. Reload or Restart Brackets -- normally not required but this extension
 needs it.
