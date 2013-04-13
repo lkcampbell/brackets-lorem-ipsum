@@ -63,7 +63,7 @@ define(function (require, exports, module) {
             text        = "",
             start       = 0,
             end         = 0,
-            codemirror  = ({}),
+            codemirror  = null,
             i           = 0;
         
         if ((event.type === "keydown") && (event.keyCode === KeyEvent.DOM_VK_TAB)) {
@@ -75,10 +75,12 @@ define(function (require, exports, module) {
                 editor.document.replaceRange(text, start, end);
                 
                 // Fix the line indentation
-                codemirror  = editor._codeMirror;
-                end         = editor.getCursorPos();
-                for (i = (start.line); i <= end.line; i++) {
-                    codemirror.indentLine(i);
+                codemirror = editor._codeMirror;
+                if (codemirror) {
+                    end = editor.getCursorPos();
+                    for (i = (start.line); i <= end.line; i++) {
+                        codemirror.indentLine(i);
+                    }   
                 }
                 
                 event.preventDefault();
