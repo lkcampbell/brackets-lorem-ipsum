@@ -373,14 +373,14 @@ define(function (require, exports, module) {
         
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
-            optionRegExp    = /^([a-z]+)(\d*)$/,  // _[unit][count], e.g. _p3
+            optionRegExp    = /^([a-z\?]+)(\d*)$/;  // _[unit][count], e.g. _p3
             optionResult    = commandArray[i].match(optionRegExp);
             
             if (optionResult) {
                 optionString   = optionResult[1];
                 optionInt      = parseInt(optionResult[2], 10);
             } else {
-                optionRegExp    = /^(\d*)([a-z]+)$/; // _[count][unit], e.g. _3p
+                optionRegExp    = /^(\d*)([a-z\?]+)$/; // _[count][unit], e.g. _3p
                 optionResult    = commandArray[i].match(optionRegExp);
                 
                 if (optionResult) {
@@ -437,6 +437,7 @@ define(function (require, exports, module) {
                 isHTML = true;
                 break;
             case "help":
+            case "?":
                 showHelp = true;
                 break;
             default:

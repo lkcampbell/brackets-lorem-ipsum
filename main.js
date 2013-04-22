@@ -44,11 +44,7 @@ define(function (require, exports, module) {
             end         = pos.ch,
             command     = "";
         
-        function isWordChar(ch) {
-            return (/[\w]/).test(ch) || ch.toUpperCase() !== ch.toLowerCase();
-        }
-        
-        while (start > 0 && isWordChar(line.charAt(start - 1))) {
+        while (start > 0 && (/\S/).test(line.charAt(start - 1))) {
             --start;
         }
         

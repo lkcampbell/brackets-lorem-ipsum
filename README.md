@@ -83,7 +83,7 @@ tags.  For options `_p` and `_s`, each individual paragraph or sentence is wrapp
 For options `_w` and `_link`, the entire collection of words or links is wrapped.
 This option is not available for lists since lists are not inline elements.
 
-**_help:** Displays help for the Lorem Ipsum extension.  If this option is used,
+**_?, _help:** Displays help for the Lorem Ipsum extension.  If this option is used,
 all other options will be ignored and no Lorem Ipsum text will be generated.
 
 **Note:** Any option that has a number associated with it (e.g. `_p3`, `_wrap40`)
