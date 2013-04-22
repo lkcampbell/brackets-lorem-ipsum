@@ -89,7 +89,7 @@ This option is not available for lists since lists are not inline elements.
 all other options will be ignored and no Lorem Ipsum text will be generated.
 
 **Note:** Any option that has a number associated with it (e.g. `_p3`, `_wrap40`)
-can also be entered with the number portion in front of the command
+can also be entered with the number portion in front of the option
 (i.e. `_3p`, `_40wrap`) and it will work the same way.
 
 ### License
