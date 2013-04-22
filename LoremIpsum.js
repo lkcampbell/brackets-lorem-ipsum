@@ -47,7 +47,7 @@ define(function (require, exports, module) {
         DEFAULT_SHOW_HELP   = false;
     
     var HELP_URL = "https://github.com/lkcampbell/brackets-lorem-ipsum#how-to-use-lorem-ipsum-generator";
-
+    
     // --- Private members
     var _allSizes = [ SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG, SIZE_VERY_LONG ];
     
@@ -359,7 +359,6 @@ define(function (require, exports, module) {
             optionResult    = [],
             optionString    = "",
             optionInt       = 0,
-            errorString     = "",
             finalText       = "";
         
         // Command options
@@ -386,6 +385,9 @@ define(function (require, exports, module) {
                 if (optionResult) {
                     optionInt      = parseInt(optionResult[1], 10);
                     optionString   = optionResult[2];
+                } else {
+                    // Unrecognized option
+                    return "Error: Unrecognized option '_" + commandArray[i] + "'.";
                 }
             }
             
@@ -442,13 +444,11 @@ define(function (require, exports, module) {
                 break;
             default:
                 // Unrecognized option
-                errorString = "Error: Unrecognized option '_" + commandArray[i] + "'.";
+                return "Error: Unrecognized option '_" + commandArray[i] + "'.";
             }
         }
         
-        if (errorString) {
-            finalText = errorString;
-        } else if (showHelp) {
+        if (showHelp) {
             NativeApp.openURLInDefaultBrowser(HELP_URL);
             finalText = "";
         } else {
