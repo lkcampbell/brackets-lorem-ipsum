@@ -372,6 +372,12 @@ define(function (require, exports, module) {
         
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
+            
+            // If any command is an empty string, it's a multiple underscore syntax error
+            if (commandArray[i] === "") {
+                return "Error: Two or more underscore characters adjacent to each other.";
+            }
+            
             optionRegExp    = /^([a-z\?]+)(\d*)$/;  // _[unit][count], e.g. _p3
             optionResult    = commandArray[i].match(optionRegExp);
             
