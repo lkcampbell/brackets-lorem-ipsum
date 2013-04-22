@@ -378,14 +378,14 @@ define(function (require, exports, module) {
                 return "Error: Two or more underscore characters adjacent to each other.";
             }
             
-            optionRegExp    = /^([a-z\?]+)(\d*)$/;  // _[unit][count], e.g. _p3
+            optionRegExp    = /^([a-z\?]+)(\d*)$/;  // _[option][number], e.g. _p3, _wrap40
             optionResult    = commandArray[i].match(optionRegExp);
             
             if (optionResult) {
                 optionString   = optionResult[1];
                 optionInt      = parseInt(optionResult[2], 10);
             } else {
-                optionRegExp    = /^(\d*)([a-z\?]+)$/; // _[count][unit], e.g. _3p
+                optionRegExp    = /^(\d*)([a-z\?]+)$/; // _[number][option], e.g. _3p, _40wrap
                 optionResult    = commandArray[i].match(optionRegExp);
                 
                 if (optionResult) {
