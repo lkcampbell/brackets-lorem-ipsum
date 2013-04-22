@@ -86,6 +86,10 @@ This option is not available for lists since lists are not inline elements.
 **_help:** Displays help for the Lorem Ipsum extension.  If this option is used,
 all other options will be ignored and no Lorem Ipsum text will be generated.
 
+**Note:** Any option that has a number associated with it (e.g. _p3, _wrap40)
+can also be entered with the number portion in front of the command
+(i.e. _3p, _40wrap) and it will work the same way.
+
 ### License
 MIT-licensed -- see `main.js` for details.
 

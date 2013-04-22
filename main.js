@@ -80,7 +80,7 @@ define(function (require, exports, module) {
                     end = editor.getCursorPos();
                     for (i = (start.line); i <= end.line; i++) {
                         codemirror.indentLine(i);
-                    }   
+                    }
                 }
                 
                 event.preventDefault();

@@ -355,7 +355,7 @@ define(function (require, exports, module) {
     function parseCommand(command) {
         var i,
             commandArray    = command.split("_"),
-            optionRegExp    = /^([a-z]+)(\d*)$/,
+            optionRegExp    = null,
             optionResult    = [],
             optionString    = "",
             optionInt       = 0,
@@ -373,67 +373,73 @@ define(function (require, exports, module) {
         
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
-            optionResult   = commandArray[i].match(optionRegExp);
+            optionRegExp    = /^([a-z]+)(\d*)$/,  // _[unit][count], e.g. _p3
+            optionResult    = commandArray[i].match(optionRegExp);
             
             if (optionResult) {
                 optionString   = optionResult[1];
                 optionInt      = parseInt(optionResult[2], 10);
-                
-                switch (optionString) {
-                case "p":
-                    unitType = "paragraph";
-                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
-                    break;
-                case "w":
-                    unitType = "word";
-                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
-                    break;
-                case "s":
-                    unitType = "sentence";
-                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
-                    break;
-                case "short":
-                    unitSize = SIZE_SHORT;
-                    break;
-                case "medium":
-                    unitSize = SIZE_MEDIUM;
-                    break;
-                case "long":
-                    unitSize = SIZE_LONG;
-                    break;
-                case "vlong":
-                    unitSize = SIZE_VERY_LONG;
-                    break;
-                case "nowrap":
-                    isWrapped = false;
-                    break;
-                case "wrap":
-                    isWrapped = true;
-                    wrapWidth = (_isNumber(optionInt)) ? optionInt : DEFAULT_WRAP_WIDTH;
-                    break;
-                case "link":
-                    unitType = "link";
-                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
-                    break;
-                case "ol":
-                    unitType = "orderedList";
-                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
-                    break;
-                case "ul":
-                    unitType = "unorderedList";
-                    unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
-                    break;
-                case "html":
-                    isHTML = true;
-                    break;
-                case "help":
-                    showHelp = true;
-                    break;
-                default:
-                    // Unrecognized option
-                    errorString = "Error: Unrecognized option '_" + commandArray[i] + "'.";
-                }
             } else {
+                optionRegExp    = /^(\d*)([a-z]+)$/; // _[count][unit], e.g. _3p
+                optionResult    = commandArray[i].match(optionRegExp);
+                
+                if (optionResult) {
+                    optionInt      = parseInt(optionResult[1], 10);
+                    optionString   = optionResult[2];
+                }
+            }
+            
+            switch (optionString) {
+            case "p":
+                unitType = "paragraph";
+                unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                break;
+            case "w":
+                unitType = "word";
+                unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                break;
+            case "s":
+                unitType = "sentence";
+                unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                break;
+            case "short":
+                unitSize = SIZE_SHORT;
+                break;
+            case "medium":
+                unitSize = SIZE_MEDIUM;
+                break;
+            case "long":
+                unitSize = SIZE_LONG;
+                break;
+            case "vlong":
+                unitSize = SIZE_VERY_LONG;
+                break;
+            case "nowrap":
+                isWrapped = false;
+                break;
+            case "wrap":
+                isWrapped = true;
+                wrapWidth = (_isNumber(optionInt)) ? optionInt : DEFAULT_WRAP_WIDTH;
+                break;
+            case "link":
+                unitType = "link";
+                unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                break;
+            case "ol":
+                unitType = "orderedList";
+                unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                break;
+            case "ul":
+                unitType = "unorderedList";
+                unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                break;
+            case "html":
+                isHTML = true;
+                break;
+            case "help":
+                showHelp = true;
+                break;
+            default:
                 // Unrecognized option
                 errorString = "Error: Unrecognized option '_" + commandArray[i] + "'.";
             }
