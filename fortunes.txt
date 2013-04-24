@@ -232,8 +232,6 @@ test", said the outsider, "because I want you to be happy."
 	Drescher took the paper that was offered him and put it into
 the toaster -- "I wish the toaster to be happy too."
 %
-A diva who specializes in risqu'e arias is an off-coloratura soprano ...
-%
 	A doctor, an architect, and a computer scientist were arguing
 about whose profession was the oldest.  In the course of their
 arguments, they got all the way back to the Garden of Eden, whereupon
@@ -298,12 +296,6 @@ facts of life in bandages of self-illusion.
 A general leading the State Department resembles a dragon commanding
 ducks.
 		-- New York Times, Jan.  20, 1981
-%
-A girl and a boy bump into each other -- surely an accident.
-A girl and a boy bump and her handkerchief drops -- surely another accident.
-But when a girl gives a boy a dead squid -- *____that ___had __to
-____mean _________something*.
-		-- S. Morganstern, "The Silent Gondoliers"
 %
 A gleekzorp without a tornpee is like a quop without a fertsneet (sort
 of).
@@ -780,9 +772,6 @@ A year spent in artificial intelligence is enough to make one believe in God.
 A.A.A.A.A.:
 	An organization for drunks who drive
 %
-AAAAAAAAAaaaaaaaaaaaaaaaccccccccckkkkkk!!!!!!!!!
-You brute!  Knock before entering a ladies room!
-%
 Abandon the search for Truth; settle for a good fantasy.
 %
 "About the time we think we can make ends meet, somebody moves the
@@ -1134,17 +1123,6 @@ the government in less than a second.
 All the world's a stage and most of us are desperately unrehearsed.
 		-- Sean O'Casey
 %
-All the world's a VAX,
-And all the coders merely butchers;
-They have their exits and their entrails;
-And one int in his time plays many widths,
-His sizeof being _N bytes.  At first the infant,
-Mewling and puking in the Regent's arms.
-And then the whining schoolboy, with his Sun,
-And shining morning face, creeping like slug
-Unwillingly to school.
-		-- A Very Annoyed PDP-11
-%
 All theoretical chemistry is really physics;
 and all theoretical chemists know it.
 		-- Richard P. Feynman
@@ -1415,10 +1393,6 @@ tragedy face to face, we have politics.
 		-- Dalglish, Larsen and Sutherland, "Root Crops and
 		   Ground Cover"
 %
-Andrea: Unhappy the land that has no heroes.
-Galileo: No, unhappy the land that _____needs heroes.
-		-- Bertolt Brecht, "Life of Galileo"
-%
 Angels we have heard on High
 Tell us to go out and Buy.
 		-- Tom Lehrer
@@ -1446,12 +1420,6 @@ Chorus:
 	All in all, it's just a pure-LISP function call.
 %
 Another good night not to sleep in a eucalyptus tree.
-%
-Another possible source of guidance for teenagers is television, but
-television's message has always been that the need for truth, wisdom
-and world peace pales by comparison with the need for a toothpaste that
-offers whiter teeth *___and* fresher breath.
-		-- Dave Barry, "Kids Today: They Don't Know Dum Diddly Do"
 %
 		Answers to Last Fortune's Questions:
 
@@ -1813,8 +1781,6 @@ challenge roughly comparable to herding cats.
 %
 At least I thought I was dancing, 'til somebody stepped on my hand.
 		-- J. B. White
-%
-"At least they're ___________EXPERIENCED incompetents"
 %
 At no time is freedom of speech more precious than when a man hits his
 thumb with a hammer.
@@ -2671,8 +2637,6 @@ shoveling the walk before it stops snowing.
 %
 Cleanliness is next to impossible.
 %
-Cleveland still lives.  God ____must be dead.
-%
 "Cleveland?  Yes, I spent a week there one day."
 %
 Cloning is the sincerest form of flattery.
@@ -2732,12 +2696,6 @@ Come, every frustum longs to be a cone,
 And every vector dreams of matrices.
 Hark to the gentle gradient of the breeze:
 It whispers of a more ergodic zone.
-		-- Stanislaw Lem, "Cyberiad"
-%
-Come, let us hasten to a higher plane,
-Where dyads tread the fairy fields of Venn,
-Their indices bedecked from one to _n,
-Commingled in an endless Markov chain!
 		-- Stanislaw Lem, "Cyberiad"
 %
 Command, n.:
@@ -3424,8 +3382,6 @@ Drew's Law of Highway Biology:
 	The first bug to hit a clean windshield lands directly in front
 	of your eyes.
 %
-Drink Canada Dry!  You might not succeed, but it *__is* fun trying.
-%
 Drive defensively.  Buy a tank.
 %
 Drugs may be the road to nowhere, but at least they're the scenic route!
@@ -3456,10 +3412,6 @@ red-faced country squire popped his head over the wall and shouted,
 "Hey, you almost hit my wife."
 	"Did I?" cried the hunter, aghast.  "Terribly sorry.  Have a
 shot at mine, over there."
-%
-During the next two hours, the system will be going up and down several
-times, often with lin~po_~{po ~poz~ppo\~{ o n~po_~{o[po ~y
-oodsou>#w4k**n~po_~{ol;lkld;f;g;dd;po\~{o
 %
 "Dying is a very dull, dreary affair.  And my advice to you is to have
 nothing whatever to do with it."
@@ -3738,25 +3690,8 @@ Everybody is somebody else's weirdo.
 %
 Everybody wants to go to heaven, but nobody wants to die.
 %
-Everyone can be taught to sculpt: Michelangelo would have had to be
-taught how ___not to.  So it is with the great programmers.
-%
 Everyone is a genius.  It's just that some people are too stupid to
 realize it.
-%
-Everyone knows that dragons don't exist.  But while this simplistic
-formulation may satisfy the layman, it does not suffice for the
-scientific mind.  The School of Higher Neantical Nillity is in fact
-wholly unconcerned with what ____does exist.  Indeed, the banality of
-existence has been so amply demonstrated, there is no need for us to
-discuss it any further here.  The brilliant Cerebron, attacking the
-problem analytically, discovered three distinct kinds of dragon: the
-mythical, the chimerical, and the purely hypothetical.  They were all,
-one might say, nonexistent, but each nonexisted in an entirely
-different way ...
-		-- Stanislaw Lem, "Cyberiad"
-%
-Everyone talks about apathy, but no one ____does anything about it.
 %
 Everything is controlled by a small evil group to which, unfortunately,
 no one we know belongs.
@@ -4062,12 +3997,6 @@ granted.  If I were you, I'd walk right up and smack them in the face.
 %
 Five is a sufficiently close approximation to infinity.
 		-- Robert Firth
-%
-Flappity, floppity, flip
-The mouse on the m"obius strip;
-	The strip revolved,
-	The mouse dissolved
-In a chronodimensional skip.
 %
 FLASH!  Intelligence of mankind decreasing.  Details at ...  uh, when
 the little hand is on the ....
@@ -4859,13 +4788,6 @@ Grandpa Charnock's Law:
 %
 Gravity is a myth: the Earth sucks.
 %
-Gray's Law of Programming:
-	`_n+1' trivial tasks are expected to be accomplished in the same
-	time as `_n' tasks.
-
-Logg's Rebuttal to Gray's Law:
-	`_n+1' trivial tasks take twice as long as `_n' trivial tasks.
-%
 Great minds run in great circles.
 %
 	GREAT MOMENTS IN AMERICAN HISTORY #21 -- July 30, 1917
@@ -5164,10 +5086,6 @@ there ...  with two slices of bread and some chunky peanut butter.
 %
 He's the kind of man for the times that need the kind of man he is ...
 %
-HE: Let's end it all, bequeathin' our brains to science.
-SHE: What?!?  Science got enough trouble with their ___OWN brains.
-		-- Walt Kelley
-%
 Health is merely the slowest possible rate at which one can die.
 %
 Health nuts are going to feel stupid someday, lying in hospitals dying
@@ -5240,22 +5158,6 @@ For someone trapped in net.news?
 
 I need your help, I say 'tween sobs,
 'Cause I'll soon be listed in net.jobs.
-%
-Here in my heart, I am Helen;
-	I'm Aspasia and Hero, at least.
-I'm Judith, and Jael, and Madame de Sta"el;
-	I'm Salome, moon of the East.
-
-Here in my soul I am Sappho;
-	Lady Hamilton am I, as well.
-In me R'ecamier vies with Kitty O'Shea,
-	With Dido, and Eve, and poor nell.
-
-I'm all of the glamorous ladies
-	At whose beckoning history shook.
-But you are a man, and see only my pan,
-	So I stay at home with a book.
-		-- Dorothy Parker
 %
 Here is a simple experiment that will teach you an important electrical
 lesson: On a cool, dry day, scuff your feet along a carpet, then reach
@@ -5818,8 +5720,6 @@ streets and frighten the horses.
 %
 "I don't object to sex before marriage, but two minutes before?!?"
 %
-"I don't think so," said Ren'e Descartes.  Just then, he vanished.
-%
 I don't think they could put him in a mental hospital.  On the other
 hand, if he were already in, I don't think they'd let him out.
 %
@@ -5862,10 +5762,6 @@ I found out why my car was humming.  It had forgotten the words.
 I gained nothing at all from Supreme Enlightenment, and for that very
 reason it is called Supreme Enlightenment.
 		-- Gotama Buddha
-%
-I gave up Smoking, Drinking and Sex.  It was the most
-*__________horrifying* 20
-minutes of my life!
 %
 I generally avoid temptation unless I can't resist it.
 		-- Mae West
@@ -5942,10 +5838,6 @@ mistake of claiming that I have never made one.
 I have made this letter longer than usual
 because I lack the time to make it shorter.
 		-- Blaise Pascal
-%
-I have more humility in my little finger than you have in your whole
-____BODY!
-		-- from "Cerebus" #82
 %
 I have seen the future and it is just like the present, only longer.
 		-- Kehlog Albran, "The Profit"
@@ -6140,10 +6032,6 @@ direction your hot tub should face for maximum solar energy.  After
 much trial and error, I have found that the best direction for a hot
 tub to face is up.
 		-- Dave Barry, "The Taming of the Screw"
-%
-I think it is true for all _n.  I was just playing it safe with _n >= 3
-because I couldn't remember the proof.
-		-- Baker, Pure Math 351a
 %
 I think sex is better than logic, but I can't prove it.
 %
@@ -6432,9 +6320,6 @@ I'm proud to be paying taxes in the United States.  The only thing is
 %
 I'm rated PG-34!!
 %
-"I'm really enjoying not talking to you ...
-Let's not talk again ____REAL soon ..."
-%
 I'm returning this note to you, instead of your paper, because it
 (your paper) presently occupies the bottom of my bird cage.
 		-- English Professor, Providence College
@@ -6526,14 +6411,6 @@ If a camel flies, no one laughs if it doesn't get very far.
 If a camel is a horse designed by a committee, then a consensus
 forecast is a camel's behind.
 		-- Edgar R. Fiedler
-%
-If A equals success, then the formula is _A = _X + _Y + _Z.  _X is work.  _Y
-is play.  _Z is keep your mouth shut.
-		-- Albert Einstein
-%
-If a group of _N persons implements a COBOL compiler, there will be _N-1
-passes.  Someone in the group has to be the manager.
-		-- T. Cheatham
 %
 If a jury in a criminal trial stays out for more than twenty-four
 hours, it is certain to vote acquittal, save in those instances where
@@ -7055,12 +6932,6 @@ Ignisecond, n.:
 	door even as the brain is saying, "my keys are in there!"
 		-- Rich Hall, "Sniglets"
 %
-Il brilgue: les t^oves libricilleux
-	Se gyrent et frillant dans le guave,
-Enm^im'es sont les gougebosquex,
-	Et le m^omerade horgrave.
-		-- Lewis Carroll, "Through the Looking Glass"
-%
 Iles's Law:
 	There is always an easier way to do it.  When looking directly
 at the easy way, especially for long periods, you will not see it.
@@ -7274,22 +7145,6 @@ In specifications, Murphy's Law supersedes Ohm's.
 In Tennessee, it is illegal to shoot any game other than whales from a
 moving automobile.
 %
-[In the 60's] there was madness in any direction, at any hour ...  You
-could strike sparks anywhere.  There was a fantastic universal sense
-that whatever we were doing was `right', that we were winning ...
-
-And that, I think, was the handle -- the sense of inevitable victory
-over the forces of Old and Evil.  Not in any mean or military sense; we
-didn't need that.  Our energy would simply `prevail'.  There was no
-point in fighting -- on our side or theirs.  We had all the momentum;
-we were riding the crest of a high and beautiful wave ....
-
-So now, less than five years later, you can go up on a steep hill in
-Las Vegas and look West, and with the right kind of eyes you can almost
-___see the high-water mark -- the place where the wave finally broke and
-rolled back.
-		-- Hunter S. Thompson, "Fear and Loathing in Las Vegas"
-%
 In the beginning was the word.
 But by the time the second word was added to it,
 there was trouble.
@@ -7469,11 +7324,6 @@ thrust into the affairs of another, from which some physiologists have
 drawn the inference that the nose is devoid of the sense of smell.
 		-- Ambrose Bierce, "The Devil's Dictionary"
 %
-It has been said [by Anatole France], "it is not by amusing oneself
-that one learns," and, in reply: "it is *____only* by amusing oneself that
-one can learn."
-		-- Edward Kasner and James R. Newman
-%
 It has been said that man is a rational animal.  All my life I have
 been searching for evidence which could support this.
 		-- Bertrand Russell
@@ -7648,9 +7498,6 @@ good either if you speak when your head is empty.
 It may be that your whole purpose in life
 is simply to serve as a warning to others.
 %
-"It runs like _x, where _x is something unsavory"
-		-- Prof.  Romas Aleliunas, CS 435
-%
 It seems like the less a statesman amounts to, the more he loves the
 flag.
 %
@@ -7723,9 +7570,6 @@ It's a good thing we don't get all the government we pay for.
 "What's a summons?"
 "It means summon's in trouble."
 		-- Rocky and Bullwinkle
-%
-It's a very *__UN*lucky week in which to be took dead.
-		-- Churchy La Femme
 %
 It's always darkest just before it gets pitch black.
 %
@@ -8007,14 +7851,6 @@ what's wrong."
 Kerr's Three Rules for a Successful College:
 	Have plenty of football for the alumni, sex for the students,
 and parking for the faculty.
-%
-Kids have *_____never* taken guidance from their parents.  If you could
-travel back in time and observe the original primate family in the
-original tree, you would see the primate parents yelling at the primate
-teenager for sitting around and sulking all day instead of hunting for
-grubs and berries like dad primate.  Then you'd see the primate
-teenager stomp up to his branch and slam the leaves.
-		-- Dave Barry, "Kids Today: They Don't Know Dum Diddly Do"
 %
 Kin, n.:
 	An affliction of the blood.
@@ -8343,11 +8179,6 @@ around the Sun.
 Living your life is a task so difficult, it has never been attempted
 before.
 %
-Lizzie Borden took an axe,
-And plunged it deep into the VAX;
-Don't you envy people who
-Do all the things ___YOU want to do?
-%
 Loan-department manager: "There isn't any fine print.  At these
 interest rates, we don't need it."
 %
@@ -8373,8 +8204,6 @@ Lockwood's Long Shot:
 	The chances of getting eaten up by a lion on Main Street aren't
 	one in a million, but once would be enough.
 %
-Logic is a little bird, sitting in a tree; that smells *_____awful*.
-%
 ...  Logically incoherent, semantically incomprehensible, and
 legally ...  impeccable!
 %
@@ -8383,8 +8212,6 @@ As rational the human kind.
 Logic, they say, belongs to man,
 But let them prove it if they can.
 		-- Oliver Goldsmith
-%
-Look out!  Behind you!
 %
 Look, we play the Star Spangled Banner before every game.  You want us
 to pay income taxes, too?
@@ -8556,13 +8383,6 @@ the message-of-the-day telling users to clean up their files.
 %
 Malek's Law:
 	Any simple idea will be worded in the most complicated way.
-%
-Man 1: Ask me the what the most important thing about telling a good
-	joke is.
-
-Man 2: OK, what is the most impo --
-
-Man 1: ______TIMING!
 %
 Man invented language to satisfy his deep need to complain.
 		-- Lily Tomlin
@@ -9574,9 +9394,6 @@ A discouraging word,
 O'Toole's Commentary on Murphy's Law:
 	Murphy was an optimist.
 %
-"Of ______course it's the murder weapon.  Who would frame someone with a
-fake?"
-%
 Of all possible committee reactions to any given agenda item, the
 reaction that will occur is the one which will liberate the greatest
 amount of hot air.
@@ -9895,12 +9712,6 @@ lacking zero, they had no way to indicate successful termination of
 their C programs.
 		-- Robert Firth
 %
-One of the oldest problems puzzled over in the Talmud is: "Why did God
-create goyim?" The generally accepted answer is "________somebody has to
-buy
-retail."
-		-- Arthur Naiman, "Every Goy's Guide to Yiddish"
-%
 	One of the questions that comes up all the time is: How
 enthusiastic is our support for UNIX?
 	Unix was written on our machines and for our machines many
@@ -10022,18 +9833,6 @@ Others will look to you for stability, so hide when you bite your nails.
 %
 Our country has plenty of good five-cent cigars, but the trouble is
 they charge fifteen cents for them.
-%
-Our documentation manager was showing her two year old son around the
-office.  He was introduced to me, at which time he pointed out that we
-were both holding bags of popcorn.  We were both holding bottles of
-juice.  But only *__he* had a lollipop.
-
-He asked his mother, "Why doesn't HE have a lollipop?"
-
-Her reply:
-
-	"He can have a lollipop any time he wants to.  That's what it
-	means to be a programmer."
 %
 Our OS who art in CPU, UNIX be thy name.
 	Thy programs run, thy syscalls done,
@@ -10408,24 +10207,6 @@ to understand the game but not smart enough to lose interest.
 %
 Polymer physicists are into chains.
 %
-Pope Goestheveezl was the shortest reigning pope in the history of the
-Church, reigning for two hours and six minutes on 1 April 1866.  The
-white smoke had hardly faded into the blue of the Vatican skies before
-it dawned on the assembled multitudes in St. Peter's Square that his
-name had hilarious possibilities.  The crowds fell about, helpless with
-laughter, singing
-
-	Half a pound of tuppenny rice
-	Half a pound of treacle
-	That's the way the chimney smokes
-	Pope Goestheveezl
-
-The square was finally cleared by armed carabineri with tears of
-laughter streaming down their faces.  The event set a record for
-hilarious civic functions, smashing the previous record set when Baron
-Hans Neizant B"ompzidaize was elected Landburgher of K"oln in 1653.
-		-- Mike Harding, "The Armchair Anarchist's Almanac"
-%
 Portable, adj.:
 	Survives system reboot.
 %
@@ -10487,41 +10268,6 @@ Professor Gorden Newell threw another shutout in last week's Chem.
 Eng.  130 midterm.  Once again no student received a single point on
 his exam.  Newell has now tossed five shutouts this quarter.  Newell's
 earned exam average has now dropped to a phenomenal 30%
-%
-Proof techniques #1: Proof by Induction.
-
-This technique is used on equations with "_n" in them.  Induction
-techniques are very popular; even the military used them.
-
-SAMPLE: Proof of induction without proof of induction.
-
-	We know it's true for _n equal to 1.  Now assume that it's true
-for every natural number less than _n.  _N is arbitrary, so we can take _n
-as large as we want.  If _n is sufficiently large, the case of _n+1 is
-trivially equivalent, so the only important _n are _n less than _n.  We
-can take _n = _n (from above), so it's true for _n+1 because it's just
-about _n.
-	QED.  (QED translates from the Latin as "So what?")
-%
-Proof techniques #2: Proof by Oddity.
-	SAMPLE: To prove that horses have an infinite number of legs.
-(1) Horses have an even number of legs.
-(2) They have two legs in back and fore legs in front.
-(3) This makes a total of six legs, which certainly is an odd number of
-    legs for a horse.
-(4) But the only number that is both odd and even is infinity.
-(5) Therefore, horses must have an infinite number of legs.
-
-Topics to be covered in future issues include proof by:
-	Intimidation
-	Gesticulation (handwaving)
-	"Try it; it works"
-	Constipation (I was just sitting there and ...)
-	Blatant assertion
-	Changing all the 2's to _n's
-	Mutual consent
-	Lack of a counterexample, and
-	"It stands to reason"
 %
 Proposed Additions to the PDP-11 Instruction Set:
 
@@ -10842,14 +10588,6 @@ functions for scratch space after they are finished calling them?
 Real software engineers don't debug programs, they verify correctness.
 This process doesn't necessarily involve execution of anything on a
 computer, except perhaps a Correctness Verification Aid package.
-%
-Real software engineers don't like the idea of some inexplicable and
-greasy hardware several aisles away that may stop working at any
-moment.  They have a great distrust of hardware people, and wish that
-systems could be virtual at *___all* levels.  They would like personal
-computers (you know no one's going to trip over something and kill your
-DFA in mid-transit), except that they need 8 megabytes to run their
-Correctness Verification Aid packages.
 %
 Real software engineers work from 9 to 5, because that is the way the
 job is described in the formal spec.  Working late would feel like
@@ -11207,11 +10945,6 @@ Schwiggle, n.:
 	The amusing rotation of one's bottom while sharpening a
 pencil.
 		-- Rich Hall, "Sniglets"
-%
-Science is facts; just as houses are made of stones, so is science made
-of facts; but a pile of stones is not a house and a collection of facts
-is not necessarily science.
-		-- Henri Poincair'e
 %
 Science is what happens when preconception meets verification.
 %
@@ -11867,23 +11600,6 @@ Systems have sub-systems and sub-systems have sub-systems and so on ad
 infinitum -- which is why we're always starting over.
 		-- Epigrams in Programming, ACM SIGPLAN Sept.  1982
 %
-      _
-  _ / \ o
- / \ | | o o o
- | | | | _ o o o o
- | \_| | / \ o o o
-  \__ | | | o o
-     | | | | ______ ~~~~ _____
-     | |__/ | / ___--\\ ~~~ __/_____\__
-     | ___/ / \--\\ \\ \ ___ <__ x x __\
-     | | / /\\ \\ )) \ ( " )
-     | | -------(---->>(@)--(@)-------\----------< >-----------
-     | | // | | //__________ / \ ____) (___ \\
-     | | // __|_| ( --------- ) //// ______ /////\ \\
-	 // | ( \ ______ / <<<< <>-----<<<<< / \\
-	// ( ) / / \` \__ \\
-       //-------------------------------------------------------------\\
-
 Every now and then when your life gets complicated and the weasels
 start closing in, the only cure is to load up on heinous chemicals and
 then drive like a bastard from Hollywood to Las Vegas ...  with the
@@ -12285,20 +12001,6 @@ out again, it would be a calamity.
 The difference between science and the fuzzy subjects is that science
 requires reasoning while those other subjects merely require scholarship.
 		-- Robert Heinlein
-%
-The distinction between Jewish and goyish can be quite subtle, as the
-following quote from Lenny Bruce illustrates:
-
-	"I'm Jewish.  Count Basie's Jewish.  Ray Charles is Jewish.
-Eddie Cantor's goyish.  The B'nai Brith is goyish.  The Hadassah is
-Jewish.  Marine Corps -- heavy goyish, dangerous.
-	"Kool-Aid is goyish.  All Drake's Cakes are goyish.
-Pumpernickel is Jewish and, as you know, white bread is very goyish.
-Instant potatoes -- goyish.  Black cherry soda's very Jewish.
-Macaroons are ____very Jewish.  Fruit salad is Jewish.  Lime Jell-O is
-goyish.  Lime soda is ____very goyish.  Trailer parks are so goyish that
-Jews won't go near them ..."
-		-- Arthur Naiman, "Every Goy's Guide to Yiddish"
 %
 The District of Columbia has a law forbidding you to exert pressure on
 a balloon and thereby cause a whistling sound on the streets.
@@ -13554,8 +13256,6 @@ Could it be, when I was young,
 	Someone dropped me on my head?
 		-- Dorothy Parker
 %
-There *__is* intelligent life on Earth, but I leave for Texas on Monday.
-%
 There are four kinds of homicide: felonious, excusable, justifiable,
 and praiseworthy ...
 		-- Ambrose Bierce, "The Devil's Dictionary"
@@ -13971,12 +13671,6 @@ except my father who wears red suspenders."
 %
 This Fortue Examined By INSPECTOR NO. 2-14
 %
-This fortune cookie program out of order.  For those in desperate need,
-please use the program "________randchar".  This program generates random
-characters, and, given enough time, will undoubtedly come up with
-something profound.  It will, however, take it no time at all to be
-more profound than THIS program has ever been.
-%
 This fortune intentionally not included.
 %
 This fortune is false.
@@ -14330,11 +14024,6 @@ Today, of course, it is considered very poor taste to use the F-word
 except in major motion pictures.
 		-- Dave Barry, "$#$%#^%!^%&@%@!"
 %
-Toilet Toup'ee, n.:
-	Any shag carpet that causes the lid to become top-heavy, thus
-	creating endless annoyance to male users.
-		-- Rich Hall, "Sniglets"
-%
 Tomorrow will be canceled due to lack of interest.
 %
 Tonight's the night: Sleep in a eucalyptus tree.
@@ -14407,8 +14096,6 @@ specification is that it should run noiselessly.
 %
 Trying to define yourself is like trying to bite your own teeth.
 		-- Alan Watts
-%
-Trying to establish voice contact ...  please ____yell into keyboard.
 %
 Turnaucka's Law:
 	The attention span of a computer is only as long as its
@@ -14661,13 +14348,6 @@ TAX-DEFERRED!
 %
 VYARZERZOMANIMORORSEZASSEZANSERAREORSES?
 %
-
- *** System shutdown message from root ***
-
-System going down in 60 seconds
-
-
-%
 "Wagner's music is better than it sounds."
 		-- Mark Twain
 %
@@ -14757,9 +14437,6 @@ We demand rigidly defined areas of doubt and uncertainty!
 %
 We don't know who discovered water, but we're certain it wasn't a
 fish.
-%
-We don't understand the software, and sometimes we don't understand the
-hardware, but we can *___see* the blinking lights!
 %
 We gave you an atomic bomb, what do you want, mermaids?
 		-- I. I. Rabi to the Atomic Energy Commission
@@ -15271,11 +14948,6 @@ When the going gets tough, the tough get empirical
 %
 When the government bureau's remedies don't match your problem, you
 modify the problem, not the remedy.
-%
-When the Ngdanga tribe of West Africa hold their moon love ceremonies,
-the men of the tribe bang their heads on sacred trees until they get a
-nose bleed, which usually cures them of ____that.
-		-- Mike Harding, "The Armchair Anarchist's Almanac"
 %
 When the speaker and he to whom he is speaks do not understand, that is
 metaphysics.
@@ -16158,10 +15830,6 @@ You've been leading a dog's life.  Stay off the furniture.
 "You've got to have a gimmick if your band sucks."
 		-- Gary Giddens
 %
-"You've got to think about tomorrow!"
-
-"TOMORROW!  I haven't even prepared for *_________yesterday* yet!"
-%
 Your analyst has you mixed up with another patient.
 Don't believe a thing he tells you.
 %
@@ -16214,4 +15882,3 @@ since I first called my brother's father dad.
 Zymurgy's Law of Volunteer Labor:
 	People are always available for work in the past tense.
 Powered by werc
-   
