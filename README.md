@@ -80,10 +80,17 @@ If the `count` option is not provided, a list with one item will be inserted.
 To avoid badly formatted HTML, both of these options ignore any `_wrap` options
 and are always set to `_nowrap`.
 
+**_fortune[count]:** For when you get sick of nonsensical Latin phrases, this
+option will insert random fortunes (similar to the Unix fortune program) into
+the current document.  The `count` option indicates how many fortunes to insert.
+For example, `lorem_fortune3` will insert three fortunes into the document. If
+the `count` option is not provided, one fortune will be inserted.
+
 **_html:** Wraps Lorem Ipsum paragraphs, sentences, words, or links in `<p></p>`
-tags.  For options `_p` and `_s`, each individual paragraph or sentence is wrapped.
-For options `_w` and `_link`, the entire collection of words or links is wrapped.
-This option is not available for lists since lists are not inline elements.
+tags.  For options `_p`, `_s`, and `_fortune` each individual paragraph, sentence,
+or fortune is wrapped. For options `_w` and `_link`, the entire collection of words
+or links is wrapped. This option is not available for lists since lists are not
+inline elements.
 
 **_?, _help:** Displays help for the Lorem Ipsum extension.  If this option is used,
 all other options will be ignored and no Lorem Ipsum text will be generated.

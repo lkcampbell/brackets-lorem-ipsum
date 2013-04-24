@@ -46,6 +46,8 @@ define(function (require, exports, module) {
         DEFAULT_IS_HTML     = false,
         DEFAULT_SHOW_HELP   = false;
     
+    var FORTUNE_FILE_ARRAY  = require("text!fortunes.txt").split("%");
+    
     var HELP_URL = "https://github.com/lkcampbell/brackets-lorem-ipsum#how-to-use-lorem-ipsum-generator";
     
     // --- Private members
@@ -350,6 +352,21 @@ define(function (require, exports, module) {
         finalText += (isOrdered ? "</ol>" : "</ul>");
         return finalText;
     }
+
+    function _getRandomFortunes(count) {
+        var i           = 0,
+            fortune     = "",
+            finalText   = "";
+        
+        for (i = 0; i < count; i++) {
+            fortune   = _getRandomElement(FORTUNE_FILE_ARRAY);
+            finalText   += fortune.trim();
+            finalText   += "\n\n";
+        }
+        
+        finalText = finalText.trim();
+        return finalText;
+    }
     
     // -- Public methods
     function parseCommand(command) {
@@ -441,6 +458,10 @@ define(function (require, exports, module) {
                 unitType = "unorderedList";
                 unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
                 break;
+            case "fortune":
+                unitType = "fortune";
+                unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                break;
             case "html":
                 isHTML = true;
                 break;
@@ -477,6 +498,9 @@ define(function (require, exports, module) {
             case "unorderedList":
                 finalText = _getRandomList(unitCount, false);
                 break;
+            case "fortune":
+                finalText = _getRandomFortunes(unitCount);
+                break;
             default:
                 finalText = _getRandomParagraphs(DEFAULT_UNIT_COUNT, DEFAULT_UNIT_SIZE);
             }
@@ -500,8 +524,8 @@ define(function (require, exports, module) {
             }
             
             if (isHTML) {
-                if ((/^(sentence|paragraph)$/.test(unitType))) {
-                    // Wrap each individual sentence or paragraph
+                if ((/^(paragraph|sentence|fortune)$/.test(unitType))) {
+                    // Wrap each individual paragraph, sentence, or fortune
                     finalText = finalText.replace(/\n{2,}/g, "\n</p>\n\n<p>\n");
                 }
                 
