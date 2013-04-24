@@ -46,7 +46,7 @@ define(function (require, exports, module) {
         DEFAULT_IS_HTML     = false,
         DEFAULT_SHOW_HELP   = false;
     
-    var FORTUNE_FILE_ARRAY  = require("text!fortune.txt").split("%");
+    var FORTUNE_FILE_ARRAY  = require("text!fortunes.txt").split("%");
     
     var HELP_URL = "https://github.com/lkcampbell/brackets-lorem-ipsum#how-to-use-lorem-ipsum-generator";
     
