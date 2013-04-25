@@ -99,6 +99,9 @@ all other options will be ignored and no Lorem Ipsum text will be generated.
 can also be entered with the number portion in front of the option
 (i.e. `_3p`, `_40wrap`) and it will work the same way.
 
+### Roadmap
+* Make the installation restartless
+
 ### License
 MIT-licensed -- see `main.js` for details.
 
