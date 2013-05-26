@@ -390,9 +390,12 @@ define(function (require, exports, module) {
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
             
-            // If any command is an empty string, it's a multiple underscore syntax error
             if (commandArray[i] === "") {
-                return "Error: Two or more underscore characters adjacent to each other.";
+                if (i === (commandArray.length - 1)) {
+                    return "Error: Unrecognized option '_'.";
+                } else {
+                    return "Error: Two or more underscore characters adjacent to each other.";
+                }
             }
             
             optionRegExp    = /^([a-z\?]+)(\d*)$/;  // _[option][number], e.g. _p3, _wrap40
