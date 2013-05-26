@@ -94,6 +94,7 @@ define(function (require, exports, module) {
         }
     }
     
-    // Update editor listeners any time the active editor changes
+    // Add Event Listeners
     $(EditorManager).on("activeEditorChange", _updateEditorListener);
+    $(EditorManager.getCurrentFullEditor()).on("keyEvent", _handleKeyEvent);
 });
