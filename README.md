@@ -3,12 +3,11 @@ An extension for [Brackets](https://github.com/adobe/brackets/) to generate
 Lorem Ipsum text automatically.
 
 ### How to Install
-1. Select **Brackets > File > Install Extension...**
+1. Select **Brackets > File > Extension Manager...**
+2. Click on **Install from URL...**
 2. Paste https://github.com/lkcampbell/brackets-lorem-ipsum
 into Extension URL field.
 3. Click on the **Install** button.
-4. Reload or Restart Brackets -- normally not required but this extension
-needs it.
 
 ### How to Use Lorem Ipsum Generator
 For plaintext Lorem Ipsum, type `lorem` then press the **Tab** key.
@@ -98,9 +97,6 @@ all other options will be ignored and no Lorem Ipsum text will be generated.
 **Note:** Any option that has a number associated with it (e.g. `_p3`, `_wrap40`)
 can also be entered with the number portion in front of the option
 (i.e. `_3p`, `_40wrap`) and it will work the same way.
-
-### Roadmap
-* Make the installation restartless
 
 ### License
 MIT-licensed -- see `main.js` for details.
