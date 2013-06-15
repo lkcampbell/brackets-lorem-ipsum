@@ -108,8 +108,8 @@ extensions use the Tab key as a shortcut key.
 The Tab shortcut can be turned off in the Emmet extension.  Go into
 "Preferences..." in the Emmet menu and uncheck the checkbox entitled
 "Expand abbreviations with Tab key". If you uncheck that setting, you
-can use both extensions together by Tab to insert Loren Ipsum text and
-expanding Emmet abbreviations with the alternative shortcut keys:
+can use both extensions together by using Tab to insert Lorem Ipsum text
+and expanding Emmet abbreviations with the alternative shortcut keys:
 
 **Ctrl-Alt-Enter** on Windows and **Command-Alt-Enter** on Mac.
 
