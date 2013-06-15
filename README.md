@@ -98,6 +98,21 @@ all other options will be ignored and no Lorem Ipsum text will be generated.
 can also be entered with the number portion in front of the option
 (i.e. `_3p`, `_40wrap`) and it will work the same way.
 
+### Known Issues
+
+**Using with Emmet/Zen Code Extension:** If you use this extension with the
+[Emmet Brackets extension](https://github.com/emmetio/brackets-emmet) some of
+the Lorem Ipsum options may not work correctly.  This is because both
+extensions use the Tab key as a shortcut key.
+
+The Tab shortcut can be turned off in the Emmet extension.  Go into
+"Preferences..." in the Emmet menu and uncheck the checkbox entitled
+"Expand abbreviations with Tab key". If you uncheck that setting, you
+can use both extensions together by Tab to insert Loren Ipsum text and
+expanding Emmet abbreviations with the alternative shortcut keys:
+
+**Ctrl-Alt-Enter** on Windows and **Command-Alt-Enter** on Mac.
+
 ### License
 MIT-licensed -- see `main.js` for details.
 
