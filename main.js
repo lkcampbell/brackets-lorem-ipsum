@@ -50,6 +50,10 @@ define(function (require, exports, module) {
         
         command = document.getRange({line: pos.line, ch: start}, {line: pos.line, ch: end});
         
+        if (command.match(/lorem/)) {
+            command = command.substring(command.match(/lorem/).index);    
+        }
+        
         return ((command.split("_")[0] === "lorem") ? command : "");
     }
     
