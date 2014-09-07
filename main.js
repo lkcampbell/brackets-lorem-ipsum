@@ -29,8 +29,9 @@ define(function (require, exports, module) {
     "use strict";
     
     // --- Brackets Modules ---
-    var KeyEvent        = brackets.getModule("utils/KeyEvent"),
-        EditorManager   = brackets.getModule("editor/EditorManager");
+    var EditorManager       = brackets.getModule("editor/EditorManager"),
+        CommandManager      = brackets.getModule("command/CommandManager"),
+        KeyBindingManager   = brackets.getModule("command/KeyBindingManager");
     
     // --- Extension modules ---
     var LoremIpsum = require("LoremIpsum");
@@ -58,47 +59,41 @@ define(function (require, exports, module) {
     }
     
     // --- Event handlers ---
-    function _handleKeyEvent(jqEvent, editor, event) {
+    var generateLorem = function () {
         var command     = "",
             text        = "",
             start       = 0,
             end         = 0,
             codemirror  = null,
-            i           = 0;
+            i           = 0,
+            editor = EditorManager.getCurrentFullEditor();
         
-        if ((event.type === "keydown") && (event.keyCode === KeyEvent.DOM_VK_TAB)) {
-            command = _getLoremCommand(editor);
-            if (command) {
-                text    = LoremIpsum.parseCommand(command);
-                end     = editor.getCursorPos();
-                start   = {line: end.line, ch: end.ch - command.length};
-                editor.document.replaceRange(text, start, end);
-                
-                // Fix the line indentation
-                codemirror = editor._codeMirror;
-                if (codemirror) {
-                    end = editor.getCursorPos();
-                    for (i = (start.line); i <= end.line; i++) {
-                        codemirror.indentLine(i);
-                    }
+        command = _getLoremCommand(editor);
+        if (command) {
+            text    = LoremIpsum.parseCommand(command);
+            end     = editor.getCursorPos();
+            start   = {line: end.line, ch: end.ch - command.length};
+            editor.document.replaceRange(text, start, end);
+
+            // Fix the line indentation
+            codemirror = editor._codeMirror;
+            if (codemirror) {
+                end = editor.getCursorPos();
+                for (i = (start.line); i <= end.line; i++) {
+                    codemirror.indentLine(i);
                 }
-                
-                event.preventDefault();
             }
+
+            event.preventDefault();
         }
-    }
+    };
     
-    function _updateEditorListener(event, newEditor, oldEditor) {
-        if (newEditor) {
-            $(newEditor).on("keyEvent", _handleKeyEvent);
-        }
-        
-        if (oldEditor) {
-            $(oldEditor).off("keyEvent", _handleKeyEvent);
-        }
-    }
+    // --- Commands ---
+    var LOREM = "lorem.generate";
     
-    // Add Event Listeners
-    $(EditorManager).on("activeEditorChange", _updateEditorListener);
-    $(EditorManager.getCurrentFullEditor()).on("keyEvent", _handleKeyEvent);
+    // --- Register Commands ---
+    CommandManager.register("Generate Lorem Ipsum", LOREM, generateLorem);
+    
+    // -- Default Keybinding ---
+    KeyBindingManager.addBinding(LOREM, { key: "Tab" });
 });
