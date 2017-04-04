@@ -1,4 +1,4 @@
-# Lorem Ipsum Generator for Brackets
+# Lorem Ipsum for Brackets
 An extension for [Brackets](https://github.com/adobe/brackets/) to generate
 Lorem Ipsum text automatically.
 
@@ -7,8 +7,9 @@ Lorem Ipsum text automatically.
 2. Search for this extension.
 3. Click on the **Install** button.
 
-### How to Use Lorem Ipsum Generator
-For plaintext Lorem Ipsum, type `lorem` then press the **Tab** key.
+### How to Use Lorem Ipsum
+For plaintext Lorem Ipsum, type `lorem` then press the `Ctrl-Shift-L` keyboard shortcut.
+The default keyboard shortcut is the same for all supported platforms.
 
 You can also add options to the `lorem` command with an underscore character
 followed by the option name. For example: `lorem_wrap40.` Multiple options
@@ -96,23 +97,22 @@ all other options will be ignored and no Lorem Ipsum text will be generated.
 can also be entered with the number portion in front of the option
 (i.e. `_3p`, `_40wrap`) and it will work the same way.
 
-### Known Issues
+### Custom Key Bindings
 
-**Using with Emmet/Zen Code Extension:** If you use this extension with the
-[Emmet Brackets extension](https://github.com/emmetio/brackets-emmet) some of
-the Lorem Ipsum options may not work correctly.  This is because both
-extensions use the Tab key as a shortcut key.
+If you would like to change the current default keyboard shortcut and add your own
+customized keyboard shortcut to generate Lorem Ipsum, set your shortcut key to the
+following command id: `lkcampbell.loremIpsum`.
 
-The Tab shortcut can be turned off in the Emmet extension.  Go into
-"Preferences..." in the Emmet menu and uncheck the checkbox entitled
-"Expand abbreviations with Tab key". If you uncheck that setting, you
-can use both extensions together by using Tab to insert Lorem Ipsum text
-and expanding Emmet abbreviations with the alternative shortcut keys:
+For example, if you want the shortcut `Alt-Shift-X` to generate Lorem Ipsum,
+type the following entry into the `overrides` section of your `keyboardmap.json`
+file:
 
-**Ctrl-Alt-Enter** on Windows and **Command-Alt-Enter** on Mac.
+`"Alt-Shift-X": "lkcampbell.loremIpsum"`
+
+For more information on setting Custom Key Bindings see [User Key Bindings](https://github.com/adobe/brackets/wiki/User-Key-Bindings).
 
 ### License
 MIT-licensed -- see `main.js` for details.
 
 ### Compatibility
-Tested on Brackets Sprint 22 and later, Windows 7.
+Tested on Brackets Release 1.8 on Mac OS 10.12.3 (Sierra) and Windows 10.

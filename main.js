@@ -1,6 +1,6 @@
 /*
  * The MIT License (MIT)
- * Copyright (c) 2013 Lance Campbell. All rights reserved.
+ * Copyright (c) 2013-2017 Lance Campbell. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -28,14 +28,20 @@
 define(function (require, exports, module) {
     "use strict";
     
-    // --- Brackets Modules ---
-    var KeyEvent        = brackets.getModule("utils/KeyEvent"),
-        EditorManager   = brackets.getModule("editor/EditorManager");
+    // Brackets modules
+    var EditorManager       = brackets.getModule("editor/EditorManager"),
+        AppInit             = brackets.getModule("utils/AppInit"),
+        CommandManager      = brackets.getModule("command/CommandManager"),
+        KeyBindingManager   = brackets.getModule("command/KeyBindingManager");
     
-    // --- Extension modules ---
+    // Extension modules
     var LoremIpsum = require("LoremIpsum");
     
-    // --- Helper functions ---
+    // Constants
+    var LOREM_COMMAND_NAME  = "Lorem Ipsum",
+        LOREM_COMMAND_ID    = "lkcampbell.loremIpsum",
+        LOREM_KEY           = "Ctrl-Shift-L";
+    
     function _getLoremCommand(editor) {
         var document    = editor.document,
             pos         = editor.getCursorPos(),
@@ -57,48 +63,39 @@ define(function (require, exports, module) {
         return ((command.split("_")[0] === "lorem") ? command : "");
     }
     
-    // --- Event handlers ---
-    function _handleKeyEvent(jqEvent, editor, event) {
-        var command     = "",
+    // Event handlers
+    function _handleLoremIpsum() {
+        var editor      = EditorManager.getFocusedEditor(),
+            command     = editor ? _getLoremCommand(editor) : null,
             text        = "",
             start       = 0,
             end         = 0,
             codemirror  = null,
             i           = 0;
         
-        if ((event.type === "keydown") && (event.keyCode === KeyEvent.DOM_VK_TAB)) {
-            command = _getLoremCommand(editor);
-            if (command) {
-                text    = LoremIpsum.parseCommand(command);
-                end     = editor.getCursorPos();
-                start   = {line: end.line, ch: end.ch - command.length};
-                editor.document.replaceRange(text, start, end);
-                
-                // Fix the line indentation
-                codemirror = editor._codeMirror;
-                if (codemirror) {
-                    end = editor.getCursorPos();
-                    for (i = (start.line); i <= end.line; i++) {
-                        codemirror.indentLine(i);
-                    }
+        if (command) {
+            text    = LoremIpsum.parseCommand(command);
+            end     = editor.getCursorPos();
+            start   = {line: end.line, ch: end.ch - command.length};
+            editor.document.replaceRange(text, start, end);
+            
+            // Fix the line indentation
+            codemirror = editor._codeMirror;
+            if (codemirror) {
+                end = editor.getCursorPos();
+                for (i = (start.line); i <= end.line; i++) {
+                    codemirror.indentLine(i);
                 }
-                
-                event.preventDefault();
             }
         }
     }
-    
-    function _updateEditorListener(event, newEditor, oldEditor) {
-        if (newEditor) {
-            $(newEditor).on("keyEvent", _handleKeyEvent);
-        }
-        
-        if (oldEditor) {
-            $(oldEditor).off("keyEvent", _handleKeyEvent);
-        }
-    }
-    
-    // Add Event Listeners
-    $(EditorManager).on("activeEditorChange", _updateEditorListener);
-    $(EditorManager.getCurrentFullEditor()).on("keyEvent", _handleKeyEvent);
+
+    // Initialize extension
+    AppInit.appReady(function () {
+        // Register commands and bind default keyboard shortcut (same for all platforms)
+        CommandManager.register(LOREM_COMMAND_NAME, LOREM_COMMAND_ID, _handleLoremIpsum);
+        KeyBindingManager.addBinding(LOREM_COMMAND_ID,
+                                     [{key: LOREM_KEY},
+                                      {key: LOREM_KEY, platform: "mac"}]);
+    });
 });
