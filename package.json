@@ -11,12 +11,6 @@
         "text",
         "generator"
     ],
-    "files": [
-        "fortunes.txt",
-        "LoremIpsum.js",
-        "main.js",
-        "README.md"
-    ],
     "engines": {
         "brackets": ">=1.8.0"
     }

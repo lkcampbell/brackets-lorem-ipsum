@@ -109,7 +109,8 @@ file:
 
 `"Alt-Shift-X": "lkcampbell.loremIpsum"`
 
-For more information on setting Custom Key Bindings see [User Key Bindings](https://github.com/adobe/brackets/wiki/User-Key-Bindings).
+For more information on setting Custom Key Bindings see
+[User Key Bindings](https://github.com/adobe/brackets/wiki/User-Key-Bindings).
 
 ### License
 MIT-licensed -- see `main.js` for details.

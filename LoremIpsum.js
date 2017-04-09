@@ -29,7 +29,7 @@ define(function (require, exports, module) {
     "use strict";
     
     // --- Brackets Modules ---
-    var NativeApp = brackets.getModule("utils/NativeApp");
+    var Dialogs = brackets.getModule('widgets/Dialogs');
     
     // --- Constants ---
     var SIZE_ANY        = 0,
@@ -48,7 +48,7 @@ define(function (require, exports, module) {
     
     var FORTUNE_FILE_ARRAY  = require("text!fortunes.txt").split("%");
     
-    var HELP_URL = "https://github.com/lkcampbell/brackets-lorem-ipsum#how-to-use-lorem-ipsum-generator";
+    var HELP_HTML = require("text!helpDialog.html");
     
     // --- Private members
     var _allSizes = [ SIZE_SHORT, SIZE_MEDIUM, SIZE_LONG, SIZE_VERY_LONG ];
@@ -479,7 +479,7 @@ define(function (require, exports, module) {
         }
         
         if (showHelp) {
-            NativeApp.openURLInDefaultBrowser(HELP_URL);
+            Dialogs.showModalDialogUsingTemplate(HELP_HTML);
             finalText = "";
         } else {
             switch (unitType) {
