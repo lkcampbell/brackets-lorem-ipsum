@@ -9,3 +9,7 @@ that this extension no longer conflicts with the
 ## 1.1.1 (04/09/2017)
 * The `_?` and `_help` option now display Lorem Ipsum help in a dialog
 box inside of Brackets.
+
+## 1.1.2 (04/09/2017)
+* Two new preferences added: `brackets-lorem-ipsum.onLoremCommand` and
+`brackets-lorem-ipsum.onNoCommand`.
