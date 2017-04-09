@@ -1,7 +1,7 @@
 {
     "name": "brackets-lorem-ipsum",
     "title": "Lorem Ipsum",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Generates Lorem Ipsum text automatically in any Brackets document.",
     "homepage": "https://github.com/lkcampbell/brackets-lorem-ipsum",
     "author": "Lance Campbell (https://github.com/lkcampbell)",
