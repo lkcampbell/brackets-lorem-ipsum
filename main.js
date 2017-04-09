@@ -29,7 +29,8 @@ define(function (require, exports, module) {
     "use strict";
     
     // Brackets modules
-    var EditorManager       = brackets.getModule("editor/EditorManager"),
+    var PreferencesManager  = brackets.getModule("preferences/PreferencesManager"),
+        EditorManager       = brackets.getModule("editor/EditorManager"),
         AppInit             = brackets.getModule("utils/AppInit"),
         CommandManager      = brackets.getModule("command/CommandManager"),
         KeyBindingManager   = brackets.getModule("command/KeyBindingManager");
@@ -41,6 +42,20 @@ define(function (require, exports, module) {
     var LOREM_COMMAND_NAME  = "Lorem Ipsum",
         LOREM_COMMAND_ID    = "lkcampbell.loremIpsum",
         LOREM_KEY           = "Ctrl-Shift-L";
+    
+    // Define extension preferences
+    var onLoremCommand  = "lorem",
+        onNoCommand     = "nothing",
+        prefs       = PreferencesManager.getExtensionPrefs("brackets-lorem-ipsum");
+    
+    prefs.definePreference("onLoremCommand", "string", onLoremCommand, {
+        description: 'This value determines the command used for the lorem command. Value is any valid lorem command including the default value of "lorem".'
+    });
+    
+    prefs.definePreference("onNoCommand", "string", onNoCommand, {
+        description: 'This value determines command used when there is no command at all. Value is any valid lorem command or the default value of "nothing".'
+    });
+    
     
     function _getLoremCommand(editor) {
         var document    = editor.document,
@@ -60,36 +75,47 @@ define(function (require, exports, module) {
             command = command.substring(command.match(/lorem/).index);
         }
         
-        return ((command.split("_")[0] === "lorem") ? command : "");
+        return ((command.split("_")[0] === "lorem") ? command : "nothing");
     }
     
     // Event handlers
     function _handleLoremIpsum() {
         var editor      = EditorManager.getFocusedEditor(),
-            command     = editor ? _getLoremCommand(editor) : null,
+            command     = editor ? _getLoremCommand(editor) : "nothing",
             text        = "",
             start       = 0,
             end         = 0,
             codemirror  = null,
             i           = 0;
         
-        if (command) {
-            text    = LoremIpsum.parseCommand(command);
-            end     = editor.getCursorPos();
-            start   = {line: end.line, ch: end.ch - command.length};
-            editor.document.replaceRange(text, start, end);
-            
-            // Fix the line indentation
-            codemirror = editor._codeMirror;
-            if (codemirror) {
-                end = editor.getCursorPos();
-                for (i = (start.line); i <= end.line; i++) {
-                    codemirror.indentLine(i);
-                }
+        // Apply preferences if appropriate
+        if (command === "lorem") {
+            command = onLoremCommand;
+        } else if (command === "nothing") {
+            command = onNoCommand;
+        }
+        
+        // Parse command and inject the Lorem Ipsum into the document
+        text    = LoremIpsum.parseCommand(command);
+        end     = editor.getCursorPos();
+        start   = {line: end.line, ch: end.ch - command.length};
+        editor.document.replaceRange(text, start, end);
+        
+        // Fix the line indentation
+        codemirror = editor._codeMirror;
+        if (codemirror) {
+            end = editor.getCursorPos();
+            for (i = (start.line); i <= end.line; i++) {
+                codemirror.indentLine(i);
             }
         }
     }
-
+    
+    function _applyPreferences() {
+        onLoremCommand  = prefs.get("onLoremCommand");
+        onNoCommand     = prefs.get("onNoCommand");
+    }
+    
     // Initialize extension
     AppInit.appReady(function () {
         // Register commands and bind default keyboard shortcut (same for all platforms)
@@ -97,5 +123,13 @@ define(function (require, exports, module) {
         KeyBindingManager.addBinding(LOREM_COMMAND_ID,
                                      [{key: LOREM_KEY},
                                       {key: LOREM_KEY, platform: "mac"}]);
+        
+        // Set up event listeners
+        prefs.on("change", function () {
+            _applyPreferences();
+        });
+
+        // Apply preferences when the extension first initializes
+        _applyPreferences();
     });
 });

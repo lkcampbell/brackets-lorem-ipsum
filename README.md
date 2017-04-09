@@ -97,6 +97,18 @@ all other options will be ignored and no Lorem Ipsum text will be generated.
 can also be entered with the number portion in front of the option
 (i.e. `_3p`, `_40wrap`) and it will work the same way.
 
+### Extension Preferences
+
+**`brackets-lorem-ipsum.onLoremCommand`** *(string)*<br/>
+This value determines the command used for the `lorem` command. Value is any valid `lorem`
+command including the default value of `"lorem"`.
+
+**`brackets-lorem-ipsum.onNoCommand`** *(string)*<br/>
+This value determines command used when there is no command at all. Value is any valid `lorem`
+command or the default value of `"nothing"`.
+
+For more information on setting preferences see [How to Use Brackets - Preferences](https://github.com/adobe/brackets/wiki/How-to-Use-Brackets#preferences)
+
 ### Custom Key Bindings
 
 If you would like to change the current default keyboard shortcut and add your own

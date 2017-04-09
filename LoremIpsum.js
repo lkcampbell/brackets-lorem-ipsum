@@ -387,6 +387,11 @@ define(function (require, exports, module) {
             isHTML      = DEFAULT_IS_HTML,
             showHelp    = DEFAULT_SHOW_HELP;
         
+        if (command === "nothing") {
+            finalText = "";
+            return finalText;
+        }
+        
         // Parse the command string
         for (i = 1; i < commandArray.length; i++) {
             
