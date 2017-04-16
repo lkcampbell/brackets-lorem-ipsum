@@ -46,6 +46,8 @@ define(function (require, exports, module) {
         DEFAULT_IS_HTML     = false,
         DEFAULT_SHOW_HELP   = false;
     
+    var ORIGINAL_TEXT  = require("text!LoremIpsum.txt");
+    
     var FORTUNE_FILE_ARRAY  = require("text!fortunes.txt").split("%");
     
     var HELP_HTML = require("text!helpDialog.html");
@@ -352,7 +354,22 @@ define(function (require, exports, module) {
         finalText += (isOrdered ? "</ol>" : "</ul>");
         return finalText;
     }
-
+    
+    function _getOriginalText(count) {
+        var i           = 0,
+            paragraph   = "",
+            finalText   = "";
+        
+        for (i = 0; i < count; i++) {
+            paragraph   = ORIGINAL_TEXT;
+            finalText   += paragraph.trim();
+            finalText   += "\n\n";
+        }
+        
+        finalText = finalText.trim();
+        return finalText;
+    }
+    
     function _getRandomFortunes(count) {
         var i           = 0,
             fortune     = "",
@@ -466,6 +483,10 @@ define(function (require, exports, module) {
                 unitType = "unorderedList";
                 unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
                 break;
+            case "orig":
+                unitType = "orig";
+                unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
+                break;
             case "fortune":
                 unitType = "fortune";
                 unitCount = (_isNumber(optionInt)) ? optionInt : DEFAULT_UNIT_COUNT;
@@ -506,6 +527,9 @@ define(function (require, exports, module) {
             case "unorderedList":
                 finalText = _getRandomList(unitCount, false);
                 break;
+            case "orig":
+                finalText = _getOriginalText(unitCount);
+                break;
             case "fortune":
                 finalText = _getRandomFortunes(unitCount);
                 break;
@@ -532,8 +556,8 @@ define(function (require, exports, module) {
             }
             
             if (isHTML) {
-                if ((/^(paragraph|sentence|fortune)$/.test(unitType))) {
-                    // Wrap each individual paragraph, sentence, or fortune
+                if ((/^(paragraph|sentence|orig|fortune)$/.test(unitType))) {
+                    // Wrap each individual paragraph, sentence, original text, or fortune
                     finalText = finalText.replace(/\n{2,}/g, "\n</p>\n\n<p>\n");
                 }
                 

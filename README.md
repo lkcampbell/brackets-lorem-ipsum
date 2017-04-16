@@ -78,6 +78,13 @@ If the `count` option is not provided, a list with one item will be inserted.
 To avoid badly formatted HTML, both of these options ignore any `_wrap` options
 and are always set to `_nowrap`.
 
+**_orig[count]:** This option will insert the original Lorem Ipsum paragraph
+into the current document. The `count` option indicates how many paragraphs to
+insert. For example, `lorem_orig3` will insert three original Lorem Ipsum paragraphs
+into the document. If the `count` option is not provided, one original Lorem Ipsum
+paragraph will be inserted. Only the `_nowrap`, `_wrap`, and `_html` options will
+work with this option.
+
 **_fortune[count]:** For when you get sick of nonsensical Latin phrases, this
 option will insert random fortunes (similar to the Unix fortune program) into
 the current document.  The `count` option indicates how many fortunes to insert.

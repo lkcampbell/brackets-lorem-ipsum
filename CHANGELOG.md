@@ -13,3 +13,6 @@ box inside of Brackets.
 ## 1.1.2 (04/09/2017)
 * Two new preferences added: `brackets-lorem-ipsum.onLoremCommand` and
 `brackets-lorem-ipsum.onNoCommand`.
+
+## 1.2.0 (04/16/2017)
+* Added the `_orig[count]` option.
