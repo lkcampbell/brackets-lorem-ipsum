@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.1 (05/07/2017)
+* Fix issue [#12](https://github.com/lkcampbell/brackets-lorem-ipsum/issues/12)
+
 ## 1.2.0 (04/16/2017)
 * Added the `_orig[count]` option.
 

@@ -81,18 +81,24 @@ define(function (require, exports, module) {
     // Event handlers
     function _handleLoremIpsum() {
         var editor      = EditorManager.getFocusedEditor(),
-            command     = editor ? _getLoremCommand(editor) : "nothing",
+            command     = editor ? _getLoremCommand(editor) : null,
             text        = "",
             start       = 0,
             end         = 0,
             codemirror  = null,
             i           = 0;
         
+        if (!command) {return;}
+        
         // Apply preferences if appropriate
         if (command === "lorem") {
             command = onLoremCommand;
         } else if (command === "nothing") {
-            command = onNoCommand;
+            if (onNoCommand === "nothing") {
+                return;
+            } else {
+                command = onNoCommand;
+            }
         }
         
         // Parse command and inject the Lorem Ipsum into the document
@@ -125,9 +131,7 @@ define(function (require, exports, module) {
                                       {key: LOREM_KEY, platform: "mac"}]);
         
         // Set up event listeners
-        prefs.on("change", function () {
-            _applyPreferences();
-        });
+        prefs.on("change", _applyPreferences);
 
         // Apply preferences when the extension first initializes
         _applyPreferences();
